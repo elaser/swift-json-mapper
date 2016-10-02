@@ -8,7 +8,9 @@
 
 import Foundation
 
-public protocol Convertable {
+typealias SerializerRule = (_ obj: Serializable, _ key: String) -> Any?
+
+public protocol Serializable {
     /**
      Two functions in Convertable protocol
      1. Serialize - which will take given instance, and convert it to JSON struct
@@ -18,4 +20,19 @@ public protocol Convertable {
     func serialize() -> JSON
     
     static func deserialize(json: JSON) -> Self
+    
+    static func mappingRules() -> [(_ key: String, _ mapping: String) -> String]
 }
+
+extension Serializable {
+    func serialize() -> JSON {
+        return JSON.null
+    }
+    
+    static func mappingRules() -> [SerializerRule] {
+        
+        return []
+    }
+}
+
+// A rule would be.. given a key and an object, return a value for that key
