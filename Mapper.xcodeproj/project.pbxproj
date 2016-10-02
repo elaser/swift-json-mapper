@@ -14,6 +14,8 @@
 		5409DDAA1DA0997A00A30292 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDA81DA0997A00A30292 /* JSON.swift */; };
 		5409DDAC1DA09AEB00A30292 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDAB1DA09AEB00A30292 /* Dictionary+Extensions.swift */; };
 		5409DDAD1DA09AEB00A30292 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDAB1DA09AEB00A30292 /* Dictionary+Extensions.swift */; };
+		5409DDB41DA0A4D900A30292 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDB31DA0A4D900A30292 /* Serializable.swift */; };
+		5409DDB51DA0A4D900A30292 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDB31DA0A4D900A30292 /* Serializable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,7 @@
 		5409DD9D1DA0996800A30292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5409DDA81DA0997A00A30292 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = JSON/JSON.swift; sourceTree = "<group>"; };
 		5409DDAB1DA09AEB00A30292 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Extensions.swift"; path = "JSON/Dictionary+Extensions.swift"; sourceTree = "<group>"; };
+		5409DDB31DA0A4D900A30292 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Serializable.swift; path = Serializable/Serializable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,7 @@
 		5409DD8F1DA0996700A30292 /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
+				5409DDB21DA0A4C800A30292 /* Serializable */,
 				5409DDA71DA0996C00A30292 /* JSON */,
 				5409DD901DA0996700A30292 /* Mapper.h */,
 				5409DD911DA0996700A30292 /* Info.plist */,
@@ -100,6 +104,14 @@
 				5409DDAB1DA09AEB00A30292 /* Dictionary+Extensions.swift */,
 			);
 			name = JSON;
+			sourceTree = "<group>";
+		};
+		5409DDB21DA0A4C800A30292 /* Serializable */ = {
+			isa = PBXGroup;
+			children = (
+				5409DDB31DA0A4D900A30292 /* Serializable.swift */,
+			);
+			name = Serializable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5409DDB41DA0A4D900A30292 /* Serializable.swift in Sources */,
 				5409DDA91DA0997A00A30292 /* JSON.swift in Sources */,
 				5409DDAC1DA09AEB00A30292 /* Dictionary+Extensions.swift in Sources */,
 			);
@@ -223,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5409DD9C1DA0996800A30292 /* MapperTests.swift in Sources */,
+				5409DDB51DA0A4D900A30292 /* Serializable.swift in Sources */,
 				5409DDAA1DA0997A00A30292 /* JSON.swift in Sources */,
 				5409DDAD1DA09AEB00A30292 /* Dictionary+Extensions.swift in Sources */,
 			);

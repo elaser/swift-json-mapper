@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum JSON {
+public enum JSON {
     case dictionary([String: JSON])
     case array([JSON])
     case string(String)
@@ -17,7 +17,7 @@ enum JSON {
     case null
 }
 
-extension JSON {
+public extension JSON {
     /** Convert any object into JSON **/
     init(obj: AnyObject) {
         switch obj {
@@ -34,7 +34,6 @@ extension JSON {
         case let a as NSNumber:
             self = .number(a)
         
-            
         default:
             self = .null
         }
