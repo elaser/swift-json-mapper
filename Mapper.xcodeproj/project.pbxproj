@@ -24,6 +24,8 @@
 		5409DDC61DA1832100A30292 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDC41DA1832100A30292 /* Operator.swift */; };
 		5409DDCD1DA19ECC00A30292 /* KVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCC1DA19ECC00A30292 /* KVC.swift */; };
 		5409DDCE1DA19ECC00A30292 /* KVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCC1DA19ECC00A30292 /* KVC.swift */; };
+		5409DDD01DA1DDCD00A30292 /* SerializerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */; };
+		5409DDD11DA1DDCD00A30292 /* SerializerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,7 @@
 		5409DDC01DA0DA8800A30292 /* BaseSerializableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseSerializableClass.swift; path = Serializable/BaseSerializableClass.swift; sourceTree = "<group>"; };
 		5409DDC41DA1832100A30292 /* Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Operator.swift; path = Operators/Operator.swift; sourceTree = "<group>"; };
 		5409DDCC1DA19ECC00A30292 /* KVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KVC.swift; path = KVC/KVC.swift; sourceTree = "<group>"; };
+		5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SerializerRule.swift; path = Serializable/SerializerRule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,7 @@
 				5409DDB31DA0A4D900A30292 /* Serializable.swift */,
 				5409DDBA1DA0A9C200A30292 /* SerializableBaseObject.swift */,
 				5409DDC01DA0DA8800A30292 /* BaseSerializableClass.swift */,
+				5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */,
 			);
 			name = Serializable;
 			sourceTree = "<group>";
@@ -258,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5409DDBB1DA0A9C200A30292 /* SerializableBaseObject.swift in Sources */,
+				5409DDD01DA1DDCD00A30292 /* SerializerRule.swift in Sources */,
 				5409DDC11DA0DA8800A30292 /* BaseSerializableClass.swift in Sources */,
 				5409DDB41DA0A4D900A30292 /* Serializable.swift in Sources */,
 				5409DDC51DA1832100A30292 /* Operator.swift in Sources */,
@@ -278,6 +283,7 @@
 				5409DDAA1DA0997A00A30292 /* JSON.swift in Sources */,
 				5409DDC61DA1832100A30292 /* Operator.swift in Sources */,
 				5409DDAD1DA09AEB00A30292 /* Dictionary+Extensions.swift in Sources */,
+				5409DDD11DA1DDCD00A30292 /* SerializerRule.swift in Sources */,
 				5409DDBC1DA0A9C200A30292 /* SerializableBaseObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

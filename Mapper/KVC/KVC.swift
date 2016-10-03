@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol KVC {
+public protocol KVC {
     func valueForKey(key: String) -> Any?
 }
 
@@ -24,6 +24,33 @@ extension KVC {
             if let label = child.label {
                 if key == label {
                     return child.value
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    /**
+        Note (Anderthan): Very similar to valueForKey, but we may want to support keypaths.  For example you may want to flatten out a nested user's attributes. "user.first_name -> first_name"
+     **/
+    func valueForKeyPath(keyPath: String) -> Any? {
+        var mirror = Mirror.init(reflecting: self)
+        
+        let keys = keyPath.characters.split(separator: ".").map(String.init)
+        for key in keys {
+            for child : (label: String?, value: Any) in mirror.children {
+                if let label = child.label {
+                    if key == label {
+                        if key == keys.last {
+                            return child.value
+                        }
+                        else {
+                            // This means we found an intermediary key, continue on with the outer for loop
+                            mirror = Mirror.init(reflecting: child.value)
+                            break
+                        }
+                    }
                 }
             }
         }

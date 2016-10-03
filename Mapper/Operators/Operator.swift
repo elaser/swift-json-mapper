@@ -9,8 +9,8 @@
 import Foundation
 
 func ~>(lhs: String, rhs: String) -> SerializerRule {
-    func mappingRule(obj: Serializable, rhs: String) -> Any? {
-        return rhs
+    func mappingRule(obj: Serializable, key: String) -> Any? {
+        return obj.valueForKey(key: lhs)
     }
     
     return mappingRule

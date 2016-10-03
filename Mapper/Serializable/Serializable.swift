@@ -8,9 +8,7 @@
 
 import Foundation
 
-typealias SerializerRule = (_ obj: Serializable, _ key: String) -> Any?
-
-public protocol Serializable {
+public protocol Serializable : KVC {
     /**
      Two functions in Convertable protocol
      1. Serialize - which will take given instance, and convert it to JSON struct
@@ -18,21 +16,43 @@ public protocol Serializable {
     **/
     
     func serialize() -> JSON
+    init(json: JSON)
     
-    static func deserialize(json: JSON) -> Self
-    
-    static func mappingRules() -> [(_ key: String, _ mapping: String) -> String]
+    static func mappingRules() -> [SerializerRule]
 }
 
-extension Serializable {
+extension Serializable where Self : NSObject {
+    /**
+     Note (Anderthan): This feature needs to be more well thought out and built.  For now, focused on deserialization
+     of objects as most of our operations are GET and PATCH (very little need for serialization of whole objects)
+    **/
     func serialize() -> JSON {
         return JSON.null
     }
     
+    /**
+     Note (Anderthan): This is the set of all mapping rules.  Perhaps I should name it deserializationMappingRules to avoid confusion when we support both serialization and deserialization.
+     
+     The whole point of having a set of rules is that sometimes we want some sort of custom behavior on our JSON object before converting it to the class.  Some of the most common rules are mapping different keypaths.  Other things might be converting to a specific enum, or running some sort of function on it.
+     
+     Each rule is meant to be flexible.  A rule will take an object, and a key, and spit out the value that we wil use to store in our object.
+    **/
     static func mappingRules() -> [SerializerRule] {
+        return [
+            "id" ~> "identifier"
+        ]
+    }
+    
+    init(json: JSON) {
+        self.init()
         
-        return []
+        // First we need to loop through all properties of object, and then apply the set of pre-defined rule onto them
+        
+        
+        
+        let rulesSequence = SerializerGenerator(rules: Self.mappingRules())
+//        for rule in rulesSequence {
+//            rule(self, <#T##String#>)
+//        }
     }
 }
-
-// A rule would be.. given a key and an object, return a value for that key
