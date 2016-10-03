@@ -18,7 +18,7 @@ public protocol Serializable : KVC {
     func serialize() -> JSON
     init(json: JSON)
     
-    static func mappingRules() -> [SerializerRule]
+    static func mappingRules() -> [String: SerializerRule]
 }
 
 extension Serializable where Self : NSObject {
@@ -37,22 +37,29 @@ extension Serializable where Self : NSObject {
      
      Each rule is meant to be flexible.  A rule will take an object, and a key, and spit out the value that we wil use to store in our object.
     **/
-    static func mappingRules() -> [SerializerRule] {
+    static func mappingRules() -> [String: SerializerRule] {
         return [
-            "id" ~> "identifier"
+            "identifier": "identifier" ~> "id"
         ]
     }
     
     init(json: JSON) {
         self.init()
         
+        let rules = Self.mappingRules()
+        
         // First we need to loop through all properties of object, and then apply the set of pre-defined rule onto them
+        let mirror = Mirror.init(reflecting: self)
+        for child : (label: String?, value: Any) in mirror.children {
+            if let label = child.label {
+                // Check if our mappingRules contains this key
+                if let rule = rules[label] {
+                    // Apply the rule
+                    rule(json, label)
+                }
+            }
+        }
         
-        
-        
-        let rulesSequence = SerializerGenerator(rules: Self.mappingRules())
-//        for rule in rulesSequence {
-//            rule(self, <#T##String#>)
-//        }
+
     }
 }

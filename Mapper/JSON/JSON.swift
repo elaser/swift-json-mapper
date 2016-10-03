@@ -37,5 +37,8 @@ public extension JSON {
         default:
             self = .null
         }
+        
     }
+    
 }
+

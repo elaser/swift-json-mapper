@@ -26,4 +26,40 @@ extension Dictionary {
         
         return dict
     }
+    
+    
+    
+}
+
+
+func valueForKeyPath(dictionary: [String: JSON], keyPath: String) -> Any? {
+    let keys = keyPath.components(separatedBy: ".")
+    return valueForKeyPath(dictionary: dictionary, keys: keys)
+}
+
+func valueForKeyPath(dictionary: [String: JSON], keys: [String]) -> Any? {
+    var mutableKeys = keys
+
+    switch keys.count {
+    case 0:
+        return nil
+    case 1:
+        let key = keys[0]
+        return dictionary[key]
+    case 2..<Int.max:
+        let currentDictionary = dictionary
+        let key = mutableKeys.removeFirst()
+        
+        
+        guard let dict = currentDictionary[key] else { return nil }
+        
+        switch dict {
+        case .dictionary(let dic):
+            return valueForKeyPath(dictionary: dic, keys: keys)
+        default:
+            return nil
+        }
+    default:
+        return nil
+    }
 }

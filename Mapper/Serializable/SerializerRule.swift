@@ -8,8 +8,8 @@
 
 import Foundation
 
-// A rule would be.. given a key and an object, return a value for that key
-public typealias SerializerRule = (_ obj: Serializable, _ key: String) -> Any?
+// A rule would be.. given a key and a JSON obj, return a value for that key
+public typealias SerializerRule = (_ obj: JSON, _ key: String) -> Any?
 
 public struct SerializerRuleIterator : IteratorProtocol {
     

@@ -9,8 +9,14 @@
 import Foundation
 
 func ~>(lhs: String, rhs: String) -> SerializerRule {
-    func mappingRule(obj: Serializable, key: String) -> Any? {
-        return obj.valueForKey(key: lhs)
+    func mappingRule(obj: JSON, key: String) -> Any? {
+        
+        switch obj {
+        case .dictionary(let dic):
+            return valueForKeyPath(dictionary: dic, keyPath: lhs)
+        default:
+            return nil
+        }
     }
     
     return mappingRule
