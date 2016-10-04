@@ -26,6 +26,7 @@
 		5409DDCE1DA19ECC00A30292 /* KVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCC1DA19ECC00A30292 /* KVC.swift */; };
 		5409DDD01DA1DDCD00A30292 /* SerializerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */; };
 		5409DDD11DA1DDCD00A30292 /* SerializerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */; };
+		54D26DD31DA3595900A79057 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D26DD21DA3595900A79057 /* JSONTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		5409DDC41DA1832100A30292 /* Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Operator.swift; path = Operators/Operator.swift; sourceTree = "<group>"; };
 		5409DDCC1DA19ECC00A30292 /* KVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KVC.swift; path = KVC/KVC.swift; sourceTree = "<group>"; };
 		5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SerializerRule.swift; path = Serializable/SerializerRule.swift; sourceTree = "<group>"; };
+		54D26DD21DA3595900A79057 /* JSONTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONTests.swift; path = JSON/JSONTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,10 @@
 		5409DD9A1DA0996800A30292 /* MapperTests */ = {
 			isa = PBXGroup;
 			children = (
+				54D26DD11DA2C51100A79057 /* JSON */,
+				54D26DD01DA2C50C00A79057 /* Serializable */,
+				54D26DCF1DA2C50800A79057 /* Operator */,
+				54D26DCE1DA2C50400A79057 /* KVC */,
 				5409DD9B1DA0996800A30292 /* MapperTests.swift */,
 				5409DD9D1DA0996800A30292 /* Info.plist */,
 			);
@@ -148,6 +154,35 @@
 				5409DDCC1DA19ECC00A30292 /* KVC.swift */,
 			);
 			name = KVC;
+			sourceTree = "<group>";
+		};
+		54D26DCE1DA2C50400A79057 /* KVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = KVC;
+			sourceTree = "<group>";
+		};
+		54D26DCF1DA2C50800A79057 /* Operator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Operator;
+			sourceTree = "<group>";
+		};
+		54D26DD01DA2C50C00A79057 /* Serializable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Serializable;
+			sourceTree = "<group>";
+		};
+		54D26DD11DA2C51100A79057 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				54D26DD21DA3595900A79057 /* JSONTests.swift */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +320,7 @@
 				5409DDAD1DA09AEB00A30292 /* Dictionary+Extensions.swift in Sources */,
 				5409DDD11DA1DDCD00A30292 /* SerializerRule.swift in Sources */,
 				5409DDBC1DA0A9C200A30292 /* SerializableBaseObject.swift in Sources */,
+				54D26DD31DA3595900A79057 /* JSONTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +516,7 @@
 				5409DDA31DA0996800A30292 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5409DDA41DA0996800A30292 /* Build configuration list for PBXNativeTarget "MapperTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +525,7 @@
 				5409DDA61DA0996800A30292 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

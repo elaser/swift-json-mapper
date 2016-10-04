@@ -39,7 +39,7 @@ extension Serializable where Self : NSObject {
     **/
     static func mappingRules() -> [String: SerializerRule] {
         return [
-            "identifier": "identifier" ~> "id"
+            "id": "identifier" ~> "id"
         ]
     }
     
@@ -55,7 +55,11 @@ extension Serializable where Self : NSObject {
                 // Check if our mappingRules contains this key
                 if let rule = rules[label] {
                     // Apply the rule
-                    rule(json, label)
+                    self.setValue(rule(json, label), forKey: label)
+                }
+                else {
+                    // If no rules, then just kvc
+                    self.setValue(json, forKey: label)
                 }
             }
         }

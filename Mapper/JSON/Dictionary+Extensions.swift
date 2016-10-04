@@ -31,12 +31,17 @@ extension Dictionary {
     
 }
 
-
+/**
+ Note (Anderthan): Dictionaries in Swift don't support getting a value given a key path.  In this case, given a keypath, we will call valueForKeyPath.
+ **/
 func valueForKeyPath(dictionary: [String: JSON], keyPath: String) -> Any? {
     let keys = keyPath.components(separatedBy: ".")
     return valueForKeyPath(dictionary: dictionary, keys: keys)
 }
 
+/**
+ Note (Anderthan): Given an array of keys, we'll loop through each array and find value for the given keypath.
+ **/
 func valueForKeyPath(dictionary: [String: JSON], keys: [String]) -> Any? {
     var mutableKeys = keys
 
