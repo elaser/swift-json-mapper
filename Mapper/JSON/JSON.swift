@@ -68,6 +68,9 @@ public extension JSON {
         }
     }
     
+    /**
+     Note (Anderthan): Sometimes, you want rawValue of the underlying component that JSON enum is wrapping.  rawValue will return what is under the hood.
+     **/
     func rawValue() -> Any? {
         switch self {
         case let .dictionary(d):

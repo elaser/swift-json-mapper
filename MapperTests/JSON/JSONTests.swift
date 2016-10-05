@@ -44,7 +44,7 @@ class JSONTests: XCTestCase {
         
         XCTAssert(userJSON.isSameType(JSON.dictionary([:])), "userJSON should be of type JSON dictionary")
 
-        XCTAssert(userJSON.get(key: "id") as! NSNumber == userDictionary["id"] as! NSNumber, "id field for userJSON and userDictionary are not equal")
+        XCTAssert(compareAnyNumber(firstOptional: userJSON.get(key: "id"), secondOptional: userDictionary["id"]), "id field for userJSON and userDictionary are not equal")
     }
     
 }

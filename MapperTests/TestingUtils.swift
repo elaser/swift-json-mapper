@@ -8,17 +8,20 @@
 
 import Foundation
 
-func ?== <T: Comparable>(firstOptional: T?, secondOptional: T?) -> Bool {
+func compareAny <T: Equatable>(firstOptional: Any?, secondOptional: Any?, class: T) -> Bool {
     if let firstForced = firstOptional, let secondForced = secondOptional {
-        return firstForced == secondForced
+        return firstForced as! T == secondForced as! T
     }
     else {
         return firstOptional == nil && secondOptional == nil
     }
 }
 
-infix operator ?== : ConversionPrecedence
-
-precedencegroup ConversionPrecedence {
-    associativity: left
+func compareAnyNumber(firstOptional: Any?, secondOptional: Any?) -> Bool {
+    if let firstForced = firstOptional, let secondForced = secondOptional {
+        return (firstForced as! NSNumber).isEqual(to: (secondForced as! NSNumber))
+    }
+    else {
+        return firstOptional == nil && secondOptional == nil
+    }
 }
