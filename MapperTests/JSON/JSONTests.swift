@@ -21,7 +21,7 @@ class JSONTests: XCTestCase {
     }
     
     func testJSONConversion() {
-        let userDictionary : [String: Any?] = [
+        let userDictionary : [String: Any] = [
             "id": 204,
             "first_name": "Anderthan",
             "last_name": "Hsieh",
@@ -42,11 +42,9 @@ class JSONTests: XCTestCase {
         
         let userJSON = JSON(obj: userDictionary)
         
-        
         XCTAssert(userJSON.isSameType(JSON.dictionary([:])), "userJSON should be of type JSON dictionary")
-        
-        
-        XCTAssert(userJSONDictionary["id"] == userDictionary["id"], "id field for userJSON and userDictionary are not equal")
+
+        XCTAssert(userJSON.get(key: "id") as! NSNumber == userDictionary["id"] as! NSNumber, "id field for userJSON and userDictionary are not equal")
     }
     
 }

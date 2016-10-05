@@ -27,6 +27,7 @@
 		5409DDD01DA1DDCD00A30292 /* SerializerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */; };
 		5409DDD11DA1DDCD00A30292 /* SerializerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */; };
 		54D26DD31DA3595900A79057 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D26DD21DA3595900A79057 /* JSONTests.swift */; };
+		54D26DD51DA4DA6C00A79057 /* TestingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D26DD41DA4DA6C00A79057 /* TestingUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		5409DDCC1DA19ECC00A30292 /* KVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KVC.swift; path = KVC/KVC.swift; sourceTree = "<group>"; };
 		5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SerializerRule.swift; path = Serializable/SerializerRule.swift; sourceTree = "<group>"; };
 		54D26DD21DA3595900A79057 /* JSONTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONTests.swift; path = JSON/JSONTests.swift; sourceTree = "<group>"; };
+		54D26DD41DA4DA6C00A79057 /* TestingUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				54D26DCE1DA2C50400A79057 /* KVC */,
 				5409DD9B1DA0996800A30292 /* MapperTests.swift */,
 				5409DD9D1DA0996800A30292 /* Info.plist */,
+				54D26DD41DA4DA6C00A79057 /* TestingUtils.swift */,
 			);
 			path = MapperTests;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				5409DDB51DA0A4D900A30292 /* Serializable.swift in Sources */,
 				5409DDC21DA0DA8800A30292 /* BaseSerializableClass.swift in Sources */,
 				5409DDAA1DA0997A00A30292 /* JSON.swift in Sources */,
+				54D26DD51DA4DA6C00A79057 /* TestingUtils.swift in Sources */,
 				5409DDC61DA1832100A30292 /* Operator.swift in Sources */,
 				5409DDAD1DA09AEB00A30292 /* Dictionary+Extensions.swift in Sources */,
 				5409DDD11DA1DDCD00A30292 /* SerializerRule.swift in Sources */,

@@ -52,7 +52,36 @@ public extension JSON {
         case (.dictionary(_), .dictionary(_)): return true
         case (.null, .null): return true
         default: return false
-
+        
+        }
+    }
+    
+    /**
+     Note (Anderthan): Provide get function which will determine which type of JSON enum the key is and return appropriate response.  We will default to returning nil if there is no such key.  Perhaps a future improvement is for this function to throw.
+     **/
+    func get(key: String) -> Any? {
+        switch self {
+        case let .dictionary(d):
+            return d[key]?.rawValue()
+        default:
+            return nil
+        }
+    }
+    
+    func rawValue() -> Any? {
+        switch self {
+        case let .dictionary(d):
+            return d
+        case let.string(s):
+            return s
+        case let .number(n):
+            return n
+        case let .bool(b):
+            return b
+        case let .array(a):
+            return a
+        default:
+            return nil
         }
     }
 }
