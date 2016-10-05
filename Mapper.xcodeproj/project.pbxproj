@@ -99,6 +99,7 @@
 		5409DD8F1DA0996700A30292 /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
+				54D26DD61DA5573100A79057 /* Utils */,
 				5409DDCB1DA19EB900A30292 /* KVC */,
 				5409DDC31DA1831200A30292 /* Operators */,
 				5409DDB21DA0A4C800A30292 /* Serializable */,
@@ -186,6 +187,13 @@
 				54D26DD21DA3595900A79057 /* JSONTests.swift */,
 			);
 			name = JSON;
+			sourceTree = "<group>";
+		};
+		54D26DD61DA5573100A79057 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
