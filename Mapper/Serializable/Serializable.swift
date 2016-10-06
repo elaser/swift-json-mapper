@@ -55,7 +55,7 @@ extension Serializable where Self : NSObject {
                 // Check if our mappingRules contains this key
                 if let rule = rules[label] {
                     // Apply the rule
-                    self.setValue(rule(json, label), forKey: label)
+                    rule(json, self)
                 }
                 else {
                     // If no rules, then just kvc

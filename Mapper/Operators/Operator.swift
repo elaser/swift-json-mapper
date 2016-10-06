@@ -9,13 +9,13 @@
 import Foundation
 
 func ~>(lhs: String, rhs: String) -> SerializerRule {
-    func mappingRule(obj: JSON, key: String) -> Any? {
-        
+    func mappingRule(obj: JSON, recipient: NSObject) {
         switch obj {
         case .dictionary(let dic):
-            return valueForKeyPath(dictionary: dic, keyPath: lhs)
+            let returnValue = valueForKeyPath(dictionary: dic, keyPath: lhs)
+            recipient.setValue(returnValue, forKey: rhs)
         default:
-            return nil
+            print("mappingRule did not work out")
         }
     }
     

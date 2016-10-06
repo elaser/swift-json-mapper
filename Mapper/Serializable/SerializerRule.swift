@@ -9,7 +9,7 @@
 import Foundation
 
 // A rule would be.. given a key and a JSON obj, return a value for that key
-public typealias SerializerRule = (_ obj: JSON, _ key: String) -> Any?
+public typealias SerializerRule = (_ obj: JSON, _ recipient: NSObject) -> Void?
 
 public struct SerializerRuleIterator : IteratorProtocol {
     

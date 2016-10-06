@@ -22,7 +22,7 @@ class OperatorTests: XCTestCase {
     
     func testMappingOperator() {
         let mappingOperator = "identifier" ~> "id"
-        let vehicleMappingOperator = "vehicle.name" ~> "vehicle_name"
+        let vehicleMappingOperator = "vehicle.name" ~> "vehicleName"
         
         let userDictionary: [String: Any] = [
             "identifier": 200,
@@ -31,11 +31,14 @@ class OperatorTests: XCTestCase {
             ]
         ]
         
-        let json = JSON(obj: userDictionary)
-        XCTAssertTrue(compareAny(firstOptional: mappingOperator(json, "identifier"), secondOptional: 200, class: NSNumber.init()) , "Grabbing identifier from userDictionary does not work")
+        let user = TestUser()
         
-        print(vehicleMappingOperator(json, "vehicle.name"))
-        XCTAssertTrue(compareAny(firstOptional: vehicleMappingOperator(json, "vehicle.name"), secondOptional: "Car", class: String.init()), "")
+        let json = JSON(obj: userDictionary)
+        mappingOperator(json, user)
+        XCTAssertTrue(compareAny(firstOptional: user.id, secondOptional: 200, class: NSNumber.init()) , "Grabbing identifier from userDictionary does not work")
+        
+        vehicleMappingOperator(json, user)
+        XCTAssertTrue(compareAny(firstOptional: user.vehicleName, secondOptional: "Car", class: String.init()), "")
         
     }
 }
