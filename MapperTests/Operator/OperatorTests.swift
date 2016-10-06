@@ -39,6 +39,5 @@ class OperatorTests: XCTestCase {
         
         vehicleMappingOperator(json, user)
         XCTAssertTrue(compareAny(firstOptional: user.vehicleName, secondOptional: "Car", class: String.init()), "")
-        
     }
 }

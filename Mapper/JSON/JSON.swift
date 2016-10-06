@@ -59,13 +59,35 @@ public extension JSON {
     /**
      Note (Anderthan): Provide get function which will determine which type of JSON enum the key is and return appropriate response.  We will default to returning nil if there is no such key.  Perhaps a future improvement is for this function to throw.
      **/
-    func get(key: String) -> Any? {
+    func get(key: String, raw: Bool = true) -> Any? {
         switch self {
         case let .dictionary(d):
-            return d[key]?.rawValue()
+            if raw {
+                return d[key]?.rawValue()
+            }
+            else {
+                return d[key]
+            }
         default:
             return nil
         }
+    }
+    
+    /**
+     Note (Anderthan): Sometimes its not enough just to get key, and we want to have keypath for deeply nested objects
+     **/
+    func getKeyPath(_ keyPath: String, raw: Bool = true) -> Any? {
+        let keys = keyPath.components(separatedBy: ".")
+        var val = self
+        for key in keys {
+            if let result = val.get(key: key, raw: raw) as? JSON {
+                val = result
+            }
+            else {
+                return nil
+            }
+        }
+        return val
     }
     
     /**
