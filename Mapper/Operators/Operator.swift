@@ -13,7 +13,13 @@ func ~>(lhs: String, rhs: String) -> SerializerRule {
         
         switch obj {
         case .dictionary(let dic):
-            return valueForKeyPath(dictionary: dic, keyPath: lhs)
+            if let value = valueForKeyPath(dictionary: dic, keyPath: lhs) as? JSON {
+                
+                return value.rawValue()
+            }
+            else {
+                return nil
+            }
         default:
             return nil
         }

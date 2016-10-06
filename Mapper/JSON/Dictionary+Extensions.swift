@@ -39,6 +39,16 @@ func valueForKeyPath(dictionary: [String: JSON], keyPath: String) -> Any? {
     return valueForKeyPath(dictionary: dictionary, keys: keys)
 }
 
+func valueForKeyPath(json: JSON, keyPath: String) -> Any? {
+    switch json {
+    case .dictionary(let dic):
+        return valueForKeyPath(dictionary: dic, keyPath: keyPath)
+    default:
+        return nil
+    }
+
+}
+
 /**
  Note (Anderthan): Given an array of keys, we'll loop through each array and find value for the given keypath.
  **/
@@ -50,7 +60,7 @@ func valueForKeyPath(dictionary: [String: JSON], keys: [String]) -> Any? {
         return nil
     case 1:
         let key = keys[0]
-        return dictionary[key]
+        return dictionary[key]?.rawValue()
     case 2..<Int.max:
         let currentDictionary = dictionary
         let key = mutableKeys.removeFirst()
@@ -60,7 +70,7 @@ func valueForKeyPath(dictionary: [String: JSON], keys: [String]) -> Any? {
         
         switch dict {
         case .dictionary(let dic):
-            return valueForKeyPath(dictionary: dic, keys: keys)
+            return valueForKeyPath(dictionary: dic, keys: mutableKeys)
         default:
             return nil
         }

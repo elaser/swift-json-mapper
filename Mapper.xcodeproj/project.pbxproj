@@ -16,18 +16,16 @@
 		5409DDAD1DA09AEB00A30292 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDAB1DA09AEB00A30292 /* Dictionary+Extensions.swift */; };
 		5409DDB41DA0A4D900A30292 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDB31DA0A4D900A30292 /* Serializable.swift */; };
 		5409DDB51DA0A4D900A30292 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDB31DA0A4D900A30292 /* Serializable.swift */; };
-		5409DDBB1DA0A9C200A30292 /* SerializableBaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDBA1DA0A9C200A30292 /* SerializableBaseObject.swift */; };
-		5409DDBC1DA0A9C200A30292 /* SerializableBaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDBA1DA0A9C200A30292 /* SerializableBaseObject.swift */; };
-		5409DDC11DA0DA8800A30292 /* BaseSerializableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDC01DA0DA8800A30292 /* BaseSerializableClass.swift */; };
-		5409DDC21DA0DA8800A30292 /* BaseSerializableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDC01DA0DA8800A30292 /* BaseSerializableClass.swift */; };
 		5409DDC51DA1832100A30292 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDC41DA1832100A30292 /* Operator.swift */; };
 		5409DDC61DA1832100A30292 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDC41DA1832100A30292 /* Operator.swift */; };
 		5409DDCD1DA19ECC00A30292 /* KVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCC1DA19ECC00A30292 /* KVC.swift */; };
 		5409DDCE1DA19ECC00A30292 /* KVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCC1DA19ECC00A30292 /* KVC.swift */; };
 		5409DDD01DA1DDCD00A30292 /* SerializerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */; };
 		5409DDD11DA1DDCD00A30292 /* SerializerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */; };
+		542C6A771DA5E9B600D2D4E6 /* DictionaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C6A761DA5E9B600D2D4E6 /* DictionaryExtensionsTests.swift */; };
 		54D26DD31DA3595900A79057 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D26DD21DA3595900A79057 /* JSONTests.swift */; };
 		54D26DD51DA4DA6C00A79057 /* TestingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D26DD41DA4DA6C00A79057 /* TestingUtils.swift */; };
+		54D26DDE1DA55AFE00A79057 /* OperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D26DDD1DA55AFE00A79057 /* OperatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,13 +48,13 @@
 		5409DDA81DA0997A00A30292 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = JSON/JSON.swift; sourceTree = "<group>"; };
 		5409DDAB1DA09AEB00A30292 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Extensions.swift"; path = "JSON/Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		5409DDB31DA0A4D900A30292 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Serializable.swift; path = Serializable/Serializable.swift; sourceTree = "<group>"; };
-		5409DDBA1DA0A9C200A30292 /* SerializableBaseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SerializableBaseObject.swift; path = Serializable/SerializableBaseObject.swift; sourceTree = "<group>"; };
-		5409DDC01DA0DA8800A30292 /* BaseSerializableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseSerializableClass.swift; path = Serializable/BaseSerializableClass.swift; sourceTree = "<group>"; };
 		5409DDC41DA1832100A30292 /* Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Operator.swift; path = Operators/Operator.swift; sourceTree = "<group>"; };
 		5409DDCC1DA19ECC00A30292 /* KVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KVC.swift; path = KVC/KVC.swift; sourceTree = "<group>"; };
 		5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SerializerRule.swift; path = Serializable/SerializerRule.swift; sourceTree = "<group>"; };
+		542C6A761DA5E9B600D2D4E6 /* DictionaryExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtensionsTests.swift; path = JSON/DictionaryExtensionsTests.swift; sourceTree = "<group>"; };
 		54D26DD21DA3595900A79057 /* JSONTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONTests.swift; path = JSON/JSONTests.swift; sourceTree = "<group>"; };
 		54D26DD41DA4DA6C00A79057 /* TestingUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingUtils.swift; sourceTree = "<group>"; };
+		54D26DDD1DA55AFE00A79057 /* OperatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OperatorTests.swift; path = Operator/OperatorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				5409DDB31DA0A4D900A30292 /* Serializable.swift */,
-				5409DDBA1DA0A9C200A30292 /* SerializableBaseObject.swift */,
-				5409DDC01DA0DA8800A30292 /* BaseSerializableClass.swift */,
 				5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */,
 			);
 			name = Serializable;
@@ -170,6 +166,7 @@
 		54D26DCF1DA2C50800A79057 /* Operator */ = {
 			isa = PBXGroup;
 			children = (
+				54D26DDD1DA55AFE00A79057 /* OperatorTests.swift */,
 			);
 			name = Operator;
 			sourceTree = "<group>";
@@ -185,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				54D26DD21DA3595900A79057 /* JSONTests.swift */,
+				542C6A761DA5E9B600D2D4E6 /* DictionaryExtensionsTests.swift */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -307,9 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5409DDBB1DA0A9C200A30292 /* SerializableBaseObject.swift in Sources */,
 				5409DDD01DA1DDCD00A30292 /* SerializerRule.swift in Sources */,
-				5409DDC11DA0DA8800A30292 /* BaseSerializableClass.swift in Sources */,
 				5409DDB41DA0A4D900A30292 /* Serializable.swift in Sources */,
 				5409DDC51DA1832100A30292 /* Operator.swift in Sources */,
 				5409DDA91DA0997A00A30292 /* JSON.swift in Sources */,
@@ -325,13 +321,13 @@
 				5409DDCE1DA19ECC00A30292 /* KVC.swift in Sources */,
 				5409DD9C1DA0996800A30292 /* MapperTests.swift in Sources */,
 				5409DDB51DA0A4D900A30292 /* Serializable.swift in Sources */,
-				5409DDC21DA0DA8800A30292 /* BaseSerializableClass.swift in Sources */,
+				54D26DDE1DA55AFE00A79057 /* OperatorTests.swift in Sources */,
+				542C6A771DA5E9B600D2D4E6 /* DictionaryExtensionsTests.swift in Sources */,
 				5409DDAA1DA0997A00A30292 /* JSON.swift in Sources */,
 				54D26DD51DA4DA6C00A79057 /* TestingUtils.swift in Sources */,
 				5409DDC61DA1832100A30292 /* Operator.swift in Sources */,
 				5409DDAD1DA09AEB00A30292 /* Dictionary+Extensions.swift in Sources */,
 				5409DDD11DA1DDCD00A30292 /* SerializerRule.swift in Sources */,
-				5409DDBC1DA0A9C200A30292 /* SerializableBaseObject.swift in Sources */,
 				54D26DD31DA3595900A79057 /* JSONTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
