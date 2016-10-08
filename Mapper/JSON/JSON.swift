@@ -119,12 +119,25 @@ public extension JSON {
         }
     }
     
+    /**
+     Note (Anderthan): Checks if a particular instance of JSON is valid for some relational mapping.  Dictionarys and arrays are allowed, but the other ones are not.
+    **/
     func isValidForDirectMapping() -> Bool {
         switch self {
         case .dictionary(_), .array(_):
             return false
         default:
             return true
+        }
+    }
+    
+    
+    func children() -> [JSON]? {
+        switch self {
+        case let .array(arr):
+            return arr
+        default:
+            return nil
         }
     }
     
