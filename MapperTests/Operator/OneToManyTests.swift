@@ -53,8 +53,6 @@ class OneToManyTests: XCTestCase {
             op(json, user)
         }
         
-        print("deliveries is: \(user.deliveries)")
-        
         XCTAssertTrue(compareAny(firstOptional: user.id, secondOptional: 200, class: NSNumber.init()) , "user identifier is not correct")
         
         let delivs = userDictionary["deliveries"] as! [[String: Any]]

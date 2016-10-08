@@ -47,9 +47,6 @@ class OneToOneTests: XCTestCase {
         
         
         XCTAssertTrue(compareAny(firstOptional: user.id, secondOptional: 200, class: NSNumber.init()) , "user identifier is not correct")
-        print("user is: \(user)")
-        print("user.vehicle is: \(user.vehicle)")
-        print("user.vehicle.name is: \(user.vehicle!.name)")
         
         XCTAssertTrue(compareAny(firstOptional: user.vehicle?.name, secondOptional: "Car", class: String.init()), "Vehicle name did not get ported over correctly")
     }
