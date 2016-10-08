@@ -90,6 +90,15 @@ public extension JSON {
         return val
     }
     
+    func getKeys() -> [String] {
+        switch self {
+        case let .dictionary(d):
+            return Array.init(d.keys)
+        default:
+            return []
+        }
+    }
+    
     /**
      Note (Anderthan): Sometimes, you want rawValue of the underlying component that JSON enum is wrapping.  rawValue will return what is under the hood.
      **/
@@ -109,6 +118,16 @@ public extension JSON {
             return nil
         }
     }
+    
+    func isValidForDirectMapping() -> Bool {
+        switch self {
+        case .dictionary(_), .array(_):
+            return false
+        default:
+            return true
+        }
+    }
+    
 }
 
 extension JSON: Equatable { }
@@ -125,5 +144,4 @@ public func == (lhs: JSON, rhs: JSON) -> Bool {
     default: return false
     }
 }
-
 

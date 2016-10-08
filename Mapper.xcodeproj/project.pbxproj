@@ -26,6 +26,7 @@
 		542C6A791DA6248600D2D4E6 /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C6A781DA6248600D2D4E6 /* TestUser.swift */; };
 		542C6A7B1DA6290F00D2D4E6 /* OneToOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C6A7A1DA6290F00D2D4E6 /* OneToOne.swift */; };
 		542C6A7C1DA6290F00D2D4E6 /* OneToOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C6A7A1DA6290F00D2D4E6 /* OneToOne.swift */; };
+		542C6A7E1DA6AB6A00D2D4E6 /* OneToOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C6A7D1DA6AB6A00D2D4E6 /* OneToOneTests.swift */; };
 		54D26DD31DA3595900A79057 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D26DD21DA3595900A79057 /* JSONTests.swift */; };
 		54D26DD51DA4DA6C00A79057 /* TestingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D26DD41DA4DA6C00A79057 /* TestingUtils.swift */; };
 		54D26DDE1DA55AFE00A79057 /* OperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D26DDD1DA55AFE00A79057 /* OperatorTests.swift */; };
@@ -57,6 +58,7 @@
 		542C6A761DA5E9B600D2D4E6 /* DictionaryExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtensionsTests.swift; path = JSON/DictionaryExtensionsTests.swift; sourceTree = "<group>"; };
 		542C6A781DA6248600D2D4E6 /* TestUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestUser.swift; path = Classes/TestUser.swift; sourceTree = "<group>"; };
 		542C6A7A1DA6290F00D2D4E6 /* OneToOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OneToOne.swift; path = Operators/OneToOne.swift; sourceTree = "<group>"; };
+		542C6A7D1DA6AB6A00D2D4E6 /* OneToOneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OneToOneTests.swift; path = Operator/OneToOneTests.swift; sourceTree = "<group>"; };
 		54D26DD21DA3595900A79057 /* JSONTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONTests.swift; path = JSON/JSONTests.swift; sourceTree = "<group>"; };
 		54D26DD41DA4DA6C00A79057 /* TestingUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingUtils.swift; sourceTree = "<group>"; };
 		54D26DDD1DA55AFE00A79057 /* OperatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OperatorTests.swift; path = Operator/OperatorTests.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				54D26DDD1DA55AFE00A79057 /* OperatorTests.swift */,
+				542C6A7D1DA6AB6A00D2D4E6 /* OneToOneTests.swift */,
 			);
 			name = Operator;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				54D26DDE1DA55AFE00A79057 /* OperatorTests.swift in Sources */,
 				542C6A771DA5E9B600D2D4E6 /* DictionaryExtensionsTests.swift in Sources */,
 				5409DDAA1DA0997A00A30292 /* JSON.swift in Sources */,
+				542C6A7E1DA6AB6A00D2D4E6 /* OneToOneTests.swift in Sources */,
 				54D26DD51DA4DA6C00A79057 /* TestingUtils.swift in Sources */,
 				5409DDC61DA1832100A30292 /* Operator.swift in Sources */,
 				542C6A7C1DA6290F00D2D4E6 /* OneToOne.swift in Sources */,

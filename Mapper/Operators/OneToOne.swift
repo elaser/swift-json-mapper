@@ -19,9 +19,21 @@ func o2o<T: NSObject>(lhs: String, rhs: String, cls: T.Type, rules: [SerializerR
     func mappingRule(obj: JSON, recipient: NSObject) {
         if let fromJSON = obj.getKeyPath(lhs, raw: false) as? JSON {
             let generatedClass = T.init()
+            
+            // Go through all the keys first of the JSON dict, and attempt to map
+            for key in fromJSON.getKeys() {
+                if let currentKey = fromJSON.get(key: key, raw: false) as? JSON {
+                    if currentKey.isValidForDirectMapping() {
+                        // Attempt to map if only its of type number, null, string.  This may throw runtime exception
+                        // Need to change this
+                        generatedClass.setValue(currentKey.rawValue(), forKey: key)
+                    }
+                }
+            }
+            
             if let rules = rules {
                 for r in rules {
-                    r(fromJSON, generatedClass)
+                    r(obj, generatedClass)
                 }
             }
             
