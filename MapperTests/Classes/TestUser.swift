@@ -13,11 +13,17 @@ class TestUser : NSObject {
     var id: NSNumber?
     var vehicleName : String?
     var vehicle : TestVehicle?
+    var deliveries: [TestDelivery]?
         
     override init() {
         super.init()
     }
     
+}
+
+class TestDelivery : NSObject {
+    var id: NSNumber!
+    var name: String!
 }
 
 class TestVehicle : NSObject {

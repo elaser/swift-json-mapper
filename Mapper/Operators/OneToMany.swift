@@ -12,7 +12,7 @@ import Foundation
  Note: (Anderthan) - o2m stands for OneToMany relationship.  Given a JSON object, and a NSObject as a recipient, we want to map a nested JSON to it.  You can pass a set of rules (for example if we need to map nested objects, or map different keypaths to another keypath), and we will map to an array of mapped objects.
  **/
 func o2m<T: NSObject>(lhs: String, rhs: String, cls: T.Type) -> SerializerRule {
-    return o2o(lhs: lhs, rhs: rhs, cls: cls, rules: nil)
+    return o2m(lhs: lhs, rhs: rhs, cls: cls, rules: nil)
 }
 
 func o2m<T: NSObject>(lhs: String, rhs: String, cls: T.Type, rules: [SerializerRule]?) -> SerializerRule {
