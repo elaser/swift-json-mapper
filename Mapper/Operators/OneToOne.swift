@@ -11,62 +11,27 @@ import Foundation
 /**
  Note: (Anderthan) - o2o stands for OneToOne relationship.  Given a JSON object, and a NSObject as a recipient, we want to map a nested JSON to it.  You can pass a set of rules (for example if we need to map nested objects, or map different keypaths to another keypath)
  **/
-func o2o<T: NSObject>(lhs: String, rhs: String, cls: T.Type) -> SerializerRule {
-    return o2o(lhs: lhs, rhs: rhs, cls: cls, rules: nil)
+func o2o<T: Serializable>(lhs: String, rhs: String) -> SerializerRule<T> {
+    return o2o(lhs: lhs, rhs: rhs, rules: nil)
 }
 
-func o2o<T: NSObject>(lhs: String, rhs: String, cls: T.Type, rules: [SerializerRule]?) -> SerializerRule {
-    func mappingRule(obj: JSON, recipient: NSObject) {
+func o2o<T: Serializable>(lhs: String, rhs: String, rules: [SerializerRule<T>]?) -> SerializerRule<T> {
+    func mappingRule(obj: JSON) -> T? {
         if let fromJSON = obj.getKeyPath(lhs, raw: false) as? JSON {
-            let generatedClass = T.init()
-            
-            // Go through all the keys first of the JSON dict, and attempt to map
-            for key in fromJSON.getKeys() {
-                if let currentKey = fromJSON.get(key: key, raw: false) as? JSON {
-                    if currentKey.isValidForDirectMapping() {
-                        // Attempt to map if only its of type number, null, string.  This may throw runtime exception
-                        // Need to change this
-                        generatedClass.setValue(currentKey.rawValue(), forKey: key)
-                    }
-                }
+            do {
+                let generatedClass = try T.init(json: fromJSON)
+                return generatedClass
             }
-            
-            if let rules = rules {
-                for r in rules {
-                    r(obj, generatedClass)
-                }
+            catch {
+                return nil
             }
-            
-            recipient.setValue(generatedClass, forKey: rhs)
         }
         else {
             print("Unable to get \(lhs) from \(obj)")
         }
+
+        return nil
     }
     
     return mappingRule
-}
-
-func mapObjectFromRules<T: NSObject>(json: JSON, cls: T.Type, rules: [SerializerRule]?) -> T? {
-    
-    let generatedClass = T.init()
-    
-    // Go through all the keys first of the JSON dict, and attempt to map
-    for key in json.getKeys() {
-        if let currentKey = json.get(key: key, raw: false) as? JSON {
-            if currentKey.isValidForDirectMapping() {
-                // Attempt to map if only its of type number, null, string.  This may throw runtime exception
-                // Need to change this
-                generatedClass.setValue(currentKey.rawValue(), forKey: key)
-            }
-        }
-    }
-    
-    if let rules = rules {
-        for r in rules {
-            r(json, generatedClass)
-        }
-    }
-    
-    return generatedClass
 }

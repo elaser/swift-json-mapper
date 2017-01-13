@@ -16,12 +16,12 @@ public protocol Serializable : KVC {
     **/
     
     func serialize() -> JSON
-    init(json: JSON)
+    init(json: JSON) throws
     
-    static func mappingRules() -> [String: SerializerRule]
+    static func mappingRules() -> [String: SerializerRule<Any>]
 }
 
-extension Serializable where Self : NSObject {
+extension Serializable {
     /**
      Note (Anderthan): This feature needs to be more well thought out and built.  For now, focused on deserialization
      of objects as most of our operations are GET and PATCH (very little need for serialization of whole objects)
@@ -37,33 +37,9 @@ extension Serializable where Self : NSObject {
      
      Each rule is meant to be flexible.  A rule will take an object, and a key, and spit out the value that we wil use to store in our object.
     **/
-    static func mappingRules() -> [String: SerializerRule] {
+    static func mappingRules() -> [String: SerializerRule<Any>] {
         return [
             "id": "identifier" ~> "id"
         ]
-    }
-    
-    init(json: JSON) {
-        self.init()
-        
-        let rules = Self.mappingRules()
-        
-        // First we need to loop through all properties of object, and then apply the set of pre-defined rule onto them
-        let mirror = Mirror.init(reflecting: self)
-        for child : (label: String?, value: Any) in mirror.children {
-            if let label = child.label {
-                // Check if our mappingRules contains this key
-                if let rule = rules[label] {
-                    // Apply the rule
-                    rule(json, self)
-                }
-                else {
-                    // If no rules, then just kvc
-                    self.setValue(json, forKey: label)
-                }
-            }
-        }
-        
-
     }
 }

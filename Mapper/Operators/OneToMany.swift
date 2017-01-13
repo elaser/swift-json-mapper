@@ -11,29 +11,30 @@ import Foundation
 /**
  Note: (Anderthan) - o2m stands for OneToMany relationship.  Given a JSON object, and a NSObject as a recipient, we want to map a nested JSON to it.  You can pass a set of rules (for example if we need to map nested objects, or map different keypaths to another keypath), and we will map to an array of mapped objects.
  **/
-func o2m<T: NSObject>(lhs: String, rhs: String, cls: T.Type) -> SerializerRule {
-    return o2m(lhs: lhs, rhs: rhs, cls: cls, rules: nil)
-}
-
-func o2m<T: NSObject>(lhs: String, rhs: String, cls: T.Type, rules: [SerializerRule]?) -> SerializerRule {
-    func mappingRule(obj: JSON, recipient: NSObject) {
+func o2m<T: Serializable>(lhs: String, rhs: String) -> SerializerRule<[T]> {
+    func mappingRule(obj: JSON) -> [T] {
         if let fromJSON = obj.getKeyPath(lhs, raw: false) as? JSON {
             
             var objects : [T] = [T]()
             
             if let array = fromJSON.children() {
                 for json in array {
-                    if let obj = mapObjectFromRules(json: json, cls: cls, rules: rules) {
+                    do {
+                        let obj = try T.init(json: json)
                         objects.append(obj)
+                    }
+                    catch {
+                        
                     }
                 }
             }
             
-            recipient.setValue(objects, forKey: rhs)
+            return objects
             
         }
         else {
             print("Unable to get \(lhs) from \(obj)")
+            return []
         }
     }
     
