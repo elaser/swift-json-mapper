@@ -8,24 +8,35 @@
 
 import Foundation
 
-class TestUser : NSObject {
+class TestUser : Serializable {
     
-    var id: NSNumber?
+    var id: NSNumber
     var vehicleName : String?
     var vehicle : TestVehicle?
     var deliveries: [TestDelivery]?
         
-    override init() {
-        super.init()
+    required init(json: JSON) throws {
+        try id = (json => "identifier")
+        try vehicleName = (json => "vehicle_name")
+        try vehicle = (json |~>? "vehicle")
     }
     
 }
 
-class TestDelivery : NSObject {
+class TestDelivery : Serializable {
     var id: NSNumber!
     var name: String!
+    
+    required init(json: JSON) throws {
+        try id = (json => "identifier")
+        try name = (json => "name")
+    }
 }
 
-class TestVehicle : NSObject {
+class TestVehicle : Serializable {
     var name: String?
+    
+    required init(json: JSON) throws {
+        try name = (json => "name")
+    }
 }

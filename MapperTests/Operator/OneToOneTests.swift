@@ -21,7 +21,25 @@ class OneToOneTests: XCTestCase {
     }
     
     func testMappingOperator() {
+        let dict : [String : Any] = [
+            "identifier": 20,
+            "vehicle_name": "Car",
+            "vehicle": [
+                "name": "TestCar"
+            ]
+        ]
         
+        let json = JSON(obj: dict)
+        
+        do {
+            let user = try TestUser(json: json)
+            XCTAssertEqual(dict["identifier"] as! NSNumber, user.id)
+            XCTAssertEqual(dict["vehicle_name"] as? String, user.vehicleName)
+            XCTAssertEqual(user.vehicle?.name!, "TestCar")
+        }
+        catch {
+            XCTAssert(false, "Unable to create a user from specified json above")
+        }
     }
     
 }
