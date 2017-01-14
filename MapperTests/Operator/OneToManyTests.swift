@@ -21,50 +21,40 @@ class OneToManyTests: XCTestCase {
     }
     
     func testOneToMany() {
-        
-        let operators = [
-            "identifier" ~> "id",
-            o2m(lhs: "deliveries", rhs: "deliveries", cls: TestDelivery.self)
-        ]
-        
-        let userDictionary: [String: Any] = [
-            "identifier": 200,
+        let dict : [String : Any] = [
+            "identifier": 20,
+            "vehicle_name": "Car",
+            "vehicle": [
+                "name": "TestCar"
+            ],
             "deliveries": [
                 [
-                    "id": 1,
-                    "name": "Delivery1"
+                    "identifier": 20,
+                    "name": "Anderthan's Awesome Delivery"
                 ],
                 [
-                    "id": 2,
-                    "name": "Delivery2"
+                    "identifier": 21,
+                    "name": "Another Awesome Delivery"
                 ],
                 [
-                    "id": 3,
-                    "name": "Delivery3"
+                    "identifier": 40,
+                    "name": "Cool Delivery"
                 ]
             ]
         ]
         
-        let user = TestUser()
+        let json = JSON(obj: dict)
         
-        let json = JSON(obj: userDictionary)
-        
-        for op in operators {
-            op(json, user)
+        do {
+            let user = try TestUser(json: json)
+            XCTAssertEqual(dict["identifier"] as! NSNumber, user.id)
+            XCTAssertEqual(dict["vehicle_name"] as? String, user.vehicleName)
+            XCTAssertEqual(user.vehicle?.name!, "TestCar")
+            XCTAssertEqual(user.deliveries!.count, 3)
         }
-        
-        XCTAssertTrue(compareAny(firstOptional: user.id, secondOptional: 200, class: NSNumber.init()) , "user identifier is not correct")
-        
-        let delivs = userDictionary["deliveries"] as! [[String: Any]]
-        let firstDeliv = delivs.first!
-        
-        let userDeliveries = user.deliveries
-        let firstUserDeliv = userDeliveries!.first!
-        
-        XCTAssertEqual(delivs.count, userDeliveries?.count)
-        
-        XCTAssertTrue(compareAny(firstOptional: firstDeliv["id"], secondOptional: firstUserDeliv.id, class: NSNumber.init()), "first user delivery id is not the same")
-        XCTAssertTrue(compareAny(firstOptional: firstDeliv["name"], secondOptional: firstUserDeliv.name, class: String.init()), "first user delivery name is not the same")
+        catch {
+            XCTAssert(false, "Unable to create a user from specified json above")
+        }
     }
     
 }

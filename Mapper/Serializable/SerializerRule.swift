@@ -9,15 +9,16 @@
 import Foundation
 
 // A rule would be.. given a key and a JSON obj, return a value for that key
-public typealias SerializerRule = (_ obj: JSON, _ recipient: NSObject) -> Void?
+public typealias SerializerRule <T> = (_ obj: JSON, _ keyPath: String) -> T?
+public typealias SerializerRules<T> = [String: SerializerRule<T>]
 
 public struct SerializerRuleIterator : IteratorProtocol {
     
     var currentIndexToPop = 0
     
-    let rules : [SerializerRule]
+    let rules : [SerializerRule<Any>]
     
-    public mutating func next() -> SerializerRule? {
+    public mutating func next() -> SerializerRule<Any>? {
         // If we have an empty rules list, then we will return nil
         if rules.count == 0 { return nil }
         
@@ -29,15 +30,15 @@ public struct SerializerRuleIterator : IteratorProtocol {
         return rules[currentIndexToPop]
     }
     
-    init(_ rules: [SerializerRule]) {
+    init(_ rules: [SerializerRule<Any>]) {
         self.rules = rules
     }
 }
 
 public struct SerializerGenerator : Sequence {
-    let rules: [SerializerRule]
+    let rules: [SerializerRule<Any?>]
 
-    init(rules: [SerializerRule]) {
+    init(rules: [SerializerRule<Any?>]) {
         self.rules = rules
     }
     

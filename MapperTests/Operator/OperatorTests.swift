@@ -21,23 +21,5 @@ class OperatorTests: XCTestCase {
     }
     
     func testMappingOperator() {
-        let mappingOperator = "identifier" ~> "id"
-        let vehicleMappingOperator = "vehicle.name" ~> "vehicleName"
-        
-        let userDictionary: [String: Any] = [
-            "identifier": 200,
-            "vehicle": [
-                "name": "Car"
-            ]
-        ]
-        
-        let user = TestUser()
-        
-        let json = JSON(obj: userDictionary)
-        mappingOperator(json, user)
-        XCTAssertTrue(compareAny(firstOptional: user.id, secondOptional: 200, class: NSNumber.init()) , "Grabbing identifier from userDictionary does not work")
-        
-        vehicleMappingOperator(json, user)
-        XCTAssertTrue(compareAny(firstOptional: user.vehicleName, secondOptional: "Car", class: String.init()), "")
     }
 }

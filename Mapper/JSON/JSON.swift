@@ -80,14 +80,20 @@ public extension JSON {
         let keys = keyPath.components(separatedBy: ".")
         var val = self
         for key in keys {
-            if let result = val.get(key: key, raw: raw) as? JSON {
+            if let result = val.get(key: key, raw: false) as? JSON {
                 val = result
             }
             else {
                 return nil
             }
         }
-        return val
+        
+        if raw {
+            return val.rawValue()
+        }
+        else {
+            return val
+        }
     }
     
     func getKeys() -> [String] {

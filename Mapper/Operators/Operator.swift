@@ -8,20 +8,17 @@
 
 import Foundation
 
-func ~>(lhs: String, rhs: String) -> SerializerRule {
-    func mappingRule(obj: JSON, recipient: NSObject) {
-        switch obj {
-        case .dictionary(let dic):
-            let returnValue = valueForKeyPath(dictionary: dic, keyPath: lhs)
-            recipient.setValue(returnValue, forKey: rhs)
-        default:
-            print("mappingRule did not work out")
-        }
+func =><T>(lhs: JSON, rhs: String) throws -> T {
+    if let val = lhs.getKeyPath(rhs) as? T {
+        return val
     }
-    
-    return mappingRule
+    else {
+        throw MappingError.NilValue
+    }
 }
 
+
+infix operator => : ConversionPrecedence
 infix operator ~> : ConversionPrecedence
 
 precedencegroup ConversionPrecedence {

@@ -21,34 +21,25 @@ class OneToOneTests: XCTestCase {
     }
     
     func testMappingOperator() {
-        let vehicleRules = [
-            "vehicle.name" ~> "name",
-        ]
-
-        let operators = [
-            "identifier" ~> "id",
-            o2o(lhs: "vehicle", rhs: "vehicle", cls: TestVehicle.self, rules: vehicleRules)
-        ]
-        
-        let userDictionary: [String: Any] = [
-            "identifier": 200,
+        let dict : [String : Any] = [
+            "identifier": 20,
+            "vehicle_name": "Car",
             "vehicle": [
-                "name": "Car"
+                "name": "TestCar"
             ]
         ]
         
-        let user = TestUser()
+        let json = JSON(obj: dict)
         
-        let json = JSON(obj: userDictionary)
-        
-        for op in operators {
-            op(json, user)
+        do {
+            let user = try TestUser(json: json)
+            XCTAssertEqual(dict["identifier"] as! NSNumber, user.id)
+            XCTAssertEqual(dict["vehicle_name"] as? String, user.vehicleName)
+            XCTAssertEqual(user.vehicle?.name!, "TestCar")
         }
-        
-        
-        XCTAssertTrue(compareAny(firstOptional: user.id, secondOptional: 200, class: NSNumber.init()) , "user identifier is not correct")
-        
-        XCTAssertTrue(compareAny(firstOptional: user.vehicle?.name, secondOptional: "Car", class: String.init()), "Vehicle name did not get ported over correctly")
+        catch {
+            XCTAssert(false, "Unable to create a user from specified json above")
+        }
     }
     
 }

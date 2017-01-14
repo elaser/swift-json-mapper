@@ -8,32 +8,53 @@
 
 import Foundation
 
+
+infix operator <~> : ConversionPrecedence
+infix operator <~>? : ConversionPrecedence
+
 /**
  Note: (Anderthan) - o2m stands for OneToMany relationship.  Given a JSON object, and a NSObject as a recipient, we want to map a nested JSON to it.  You can pass a set of rules (for example if we need to map nested objects, or map different keypaths to another keypath), and we will map to an array of mapped objects.
  **/
-func o2m<T: NSObject>(lhs: String, rhs: String, cls: T.Type) -> SerializerRule {
-    return o2m(lhs: lhs, rhs: rhs, cls: cls, rules: nil)
+func <~><T: Serializable>(lhs: JSON, rhs: String) throws -> [T] {
+    let mapping : SerializerRule<[T]> = o2m(rules: nil)
+    if let result = mapping(lhs, rhs) {
+        return result
+    }
+    else {
+        throw MappingError.NilValue
+    }
 }
 
-func o2m<T: NSObject>(lhs: String, rhs: String, cls: T.Type, rules: [SerializerRule]?) -> SerializerRule {
-    func mappingRule(obj: JSON, recipient: NSObject) {
-        if let fromJSON = obj.getKeyPath(lhs, raw: false) as? JSON {
-            
+func <~>?<T: Serializable>(lhs: JSON, rhs: String) throws -> [T]? {
+    let mapping : SerializerRule<[T]> = o2m(rules: nil)
+    return mapping(lhs, rhs)
+}
+
+
+
+func o2m<T: Serializable>(rules: [SerializerRule<T>]?) -> SerializerRule<[T]> {
+    func mappingRule(obj: JSON, keyPath: String) -> [T]? {
+        if let fromJSON = obj.getKeyPath(keyPath, raw: false) as? JSON {
             var objects : [T] = [T]()
             
             if let array = fromJSON.children() {
                 for json in array {
-                    if let obj = mapObjectFromRules(json: json, cls: cls, rules: rules) {
+                    do {
+                        let obj = try T.init(json: json)
                         objects.append(obj)
+                    }
+                    catch {
+                        
                     }
                 }
             }
             
-            recipient.setValue(objects, forKey: rhs)
+            return objects
             
         }
         else {
-            print("Unable to get \(lhs) from \(obj)")
+            print("Unable to get \(keyPath) from \(obj)")
+            return []
         }
     }
     
