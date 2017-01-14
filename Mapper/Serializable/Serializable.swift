@@ -21,7 +21,7 @@ public protocol Serializable : KVC {
     static func mappingRules() -> [String: SerializerRule<Any>]
 }
 
-extension Serializable {
+public extension Serializable {
     /**
      Note (Anderthan): This feature needs to be more well thought out and built.  For now, focused on deserialization
      of objects as most of our operations are GET and PATCH (very little need for serialization of whole objects)
