@@ -20,4 +20,5 @@ extension User : Serializable {
         try lastName = (json => "last_name")
         try age = (json => "age")
     }
+    
 }

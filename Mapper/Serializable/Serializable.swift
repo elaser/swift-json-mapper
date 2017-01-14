@@ -38,8 +38,6 @@ extension Serializable {
      Each rule is meant to be flexible.  A rule will take an object, and a key, and spit out the value that we wil use to store in our object.
     **/
     static func mappingRules() -> [String: SerializerRule<Any>] {
-        return [
-            "id": "identifier" ~> "id"
-        ]
+        return [:]
     }
 }

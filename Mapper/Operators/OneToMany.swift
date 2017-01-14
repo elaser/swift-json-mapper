@@ -8,13 +8,33 @@
 
 import Foundation
 
+
+infix operator <~> : ConversionPrecedence
+infix operator <~>? : ConversionPrecedence
+
 /**
  Note: (Anderthan) - o2m stands for OneToMany relationship.  Given a JSON object, and a NSObject as a recipient, we want to map a nested JSON to it.  You can pass a set of rules (for example if we need to map nested objects, or map different keypaths to another keypath), and we will map to an array of mapped objects.
  **/
-func o2m<T: Serializable>(lhs: String, rhs: String) -> SerializerRule<[T]> {
-    func mappingRule(obj: JSON) -> [T] {
-        if let fromJSON = obj.getKeyPath(lhs, raw: false) as? JSON {
-            
+func <~><T: Serializable>(lhs: JSON, rhs: String) throws -> [T] {
+    let mapping : SerializerRule<[T]> = o2m(rules: nil)
+    if let result = mapping(lhs, rhs) {
+        return result
+    }
+    else {
+        throw MappingError.NilValue
+    }
+}
+
+func <~>?<T: Serializable>(lhs: JSON, rhs: String) throws -> [T]? {
+    let mapping : SerializerRule<[T]> = o2m(rules: nil)
+    return mapping(lhs, rhs)
+}
+
+
+
+func o2m<T: Serializable>(rules: [SerializerRule<T>]?) -> SerializerRule<[T]> {
+    func mappingRule(obj: JSON, keyPath: String) -> [T]? {
+        if let fromJSON = obj.getKeyPath(keyPath, raw: false) as? JSON {
             var objects : [T] = [T]()
             
             if let array = fromJSON.children() {
@@ -33,7 +53,7 @@ func o2m<T: Serializable>(lhs: String, rhs: String) -> SerializerRule<[T]> {
             
         }
         else {
-            print("Unable to get \(lhs) from \(obj)")
+            print("Unable to get \(keyPath) from \(obj)")
             return []
         }
     }

@@ -21,50 +21,6 @@ class OneToManyTests: XCTestCase {
     }
     
     func testOneToMany() {
-        
-        let operators = [
-            "identifier" ~> "id",
-            o2m(lhs: "deliveries", rhs: "deliveries", cls: TestDelivery.self)
-        ]
-        
-        let userDictionary: [String: Any] = [
-            "identifier": 200,
-            "deliveries": [
-                [
-                    "id": 1,
-                    "name": "Delivery1"
-                ],
-                [
-                    "id": 2,
-                    "name": "Delivery2"
-                ],
-                [
-                    "id": 3,
-                    "name": "Delivery3"
-                ]
-            ]
-        ]
-        
-        let user = TestUser()
-        
-        let json = JSON(obj: userDictionary)
-        
-        for op in operators {
-            op(json, user)
-        }
-        
-        XCTAssertTrue(compareAny(firstOptional: user.id, secondOptional: 200, class: NSNumber.init()) , "user identifier is not correct")
-        
-        let delivs = userDictionary["deliveries"] as! [[String: Any]]
-        let firstDeliv = delivs.first!
-        
-        let userDeliveries = user.deliveries
-        let firstUserDeliv = userDeliveries!.first!
-        
-        XCTAssertEqual(delivs.count, userDeliveries?.count)
-        
-        XCTAssertTrue(compareAny(firstOptional: firstDeliv["id"], secondOptional: firstUserDeliv.id, class: NSNumber.init()), "first user delivery id is not the same")
-        XCTAssertTrue(compareAny(firstOptional: firstDeliv["name"], secondOptional: firstUserDeliv.name, class: String.init()), "first user delivery name is not the same")
     }
     
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 // A rule would be.. given a key and a JSON obj, return a value for that key
-public typealias SerializerRule <T> = (_ obj: JSON) -> T?
+public typealias SerializerRule <T> = (_ obj: JSON, _ keyPath: String) -> T?
 public typealias SerializerRules<T> = [String: SerializerRule<T>]
 
 public struct SerializerRuleIterator : IteratorProtocol {
