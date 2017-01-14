@@ -21,6 +21,40 @@ class OneToManyTests: XCTestCase {
     }
     
     func testOneToMany() {
+        let dict : [String : Any] = [
+            "identifier": 20,
+            "vehicle_name": "Car",
+            "vehicle": [
+                "name": "TestCar"
+            ],
+            "deliveries": [
+                [
+                    "identifier": 20,
+                    "name": "Anderthan's Awesome Delivery"
+                ],
+                [
+                    "identifier": 21,
+                    "name": "Another Awesome Delivery"
+                ],
+                [
+                    "identifier": 40,
+                    "name": "Cool Delivery"
+                ]
+            ]
+        ]
+        
+        let json = JSON(obj: dict)
+        
+        do {
+            let user = try TestUser(json: json)
+            XCTAssertEqual(dict["identifier"] as! NSNumber, user.id)
+            XCTAssertEqual(dict["vehicle_name"] as? String, user.vehicleName)
+            XCTAssertEqual(user.vehicle?.name!, "TestCar")
+            XCTAssertEqual(user.deliveries!.count, 3)
+        }
+        catch {
+            XCTAssert(false, "Unable to create a user from specified json above")
+        }
     }
     
 }

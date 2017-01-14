@@ -19,6 +19,7 @@ class TestUser : Serializable {
         try id = (json => "identifier")
         try vehicleName = (json => "vehicle_name")
         try vehicle = (json |~>? "vehicle")
+        try deliveries = (json <~>? "deliveries")
     }
     
 }
