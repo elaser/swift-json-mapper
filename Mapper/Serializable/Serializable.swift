@@ -14,11 +14,7 @@ public protocol Serializable : KVC {
      1. Serialize - which will take given instance, and convert it to JSON struct
      2. Deserialize - given a JSON struct, it will attempt to convert to the class that is conforming to this protocol
     **/
-    
-    func serialize() -> JSON
     init(json: JSON) throws
-    
-    static func mappingRules() -> [String: SerializerRule<Any>]
 }
 
 public extension Serializable {
