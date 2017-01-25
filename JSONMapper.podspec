@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
 
   s.source = { :git => 'https://github.com/elaser/swift-json-mapper.git', :tag => "0.0.2" }
-  s.source_files  = "Mapper/*.{h,m,swift}"
+  s.source_files  = "Mapper/**/*.{h,m,swift}"
   s.public_header_files = "Mapper/*.h"
 
   s.requires_arc = true
