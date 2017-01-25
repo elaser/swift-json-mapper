@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Serializable : KVC {
+public protocol Serializable {
     /**
      Two functions in Convertable protocol
      1. Serialize - which will take given instance, and convert it to JSON struct
