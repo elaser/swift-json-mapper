@@ -17,7 +17,7 @@ public func =><T>(lhs: JSON, rhs: String) throws -> T {
     }
 }
 
-public func =>?<T>(lhs: JSON, rhs: String) -> T {
+public func =>?<T>(lhs: JSON, rhs: String) -> T? {
     if let val = lhs.getKeyPath(rhs) as? T {
         return val
     }
