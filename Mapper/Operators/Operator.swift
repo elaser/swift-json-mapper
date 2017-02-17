@@ -28,6 +28,7 @@ public func =>?<T>(lhs: JSON, rhs: String) -> T {
 
 
 infix operator => : ConversionPrecedence
+infix operator =>? : ConversionPrecedence
 infix operator ~> : ConversionPrecedence
 
 precedencegroup ConversionPrecedence {
