@@ -33,4 +33,5 @@ infix operator ~> : ConversionPrecedence
 
 precedencegroup ConversionPrecedence {
     associativity: left
+    higherThan: FunctionArrowPrecedence
 }
