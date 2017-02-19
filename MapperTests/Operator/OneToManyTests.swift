@@ -24,6 +24,7 @@ class OneToManyTests: XCTestCase {
         let dict : [String : Any] = [
             "identifier": 20,
             "vehicle_name": "Car",
+            "created_at": "2017-02-15T22:45:28.735098Z",
             "vehicle": [
                 "name": "TestCar"
             ],

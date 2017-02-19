@@ -34,6 +34,7 @@ class OneToOneTests: XCTestCase {
         
         do {
             let user = try TestUser(json: json)
+            print("finished user mapping")
             XCTAssertEqual(dict["identifier"] as! NSNumber, user.id)
             XCTAssertEqual(dict["vehicle_name"] as? String, user.vehicleName)
             XCTAssertEqual(user.vehicle?.name!, "TestCar")

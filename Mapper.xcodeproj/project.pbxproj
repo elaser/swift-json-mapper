@@ -18,10 +18,11 @@
 		5409DDB51DA0A4D900A30292 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDB31DA0A4D900A30292 /* Serializable.swift */; };
 		5409DDC51DA1832100A30292 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDC41DA1832100A30292 /* Operator.swift */; };
 		5409DDC61DA1832100A30292 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDC41DA1832100A30292 /* Operator.swift */; };
-		5409DDCD1DA19ECC00A30292 /* KVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCC1DA19ECC00A30292 /* KVC.swift */; };
-		5409DDCE1DA19ECC00A30292 /* KVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCC1DA19ECC00A30292 /* KVC.swift */; };
 		5409DDD01DA1DDCD00A30292 /* SerializerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */; };
 		5409DDD11DA1DDCD00A30292 /* SerializerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */; };
+		540FDE971E5A236300B07092 /* Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540FDE961E5A236300B07092 /* Convertible.swift */; };
+		540FDE981E5A236300B07092 /* Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540FDE961E5A236300B07092 /* Convertible.swift */; };
+		540FDE9D1E5A288600B07092 /* ConvertiblePrimitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540FDE9C1E5A288600B07092 /* ConvertiblePrimitive.swift */; };
 		542C6A771DA5E9B600D2D4E6 /* DictionaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C6A761DA5E9B600D2D4E6 /* DictionaryExtensionsTests.swift */; };
 		542C6A791DA6248600D2D4E6 /* TestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C6A781DA6248600D2D4E6 /* TestUser.swift */; };
 		542C6A7B1DA6290F00D2D4E6 /* OneToOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C6A7A1DA6290F00D2D4E6 /* OneToOne.swift */; };
@@ -32,6 +33,7 @@
 		542C6A8C1DA8A96000D2D4E6 /* OneToManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542C6A8B1DA8A96000D2D4E6 /* OneToManyTests.swift */; };
 		544D337E1E593C1600E2C134 /* Date+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544D337D1E593C1600E2C134 /* Date+Converter.swift */; };
 		544D337F1E593C1600E2C134 /* Date+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544D337D1E593C1600E2C134 /* Date+Converter.swift */; };
+		5494C5A31E5A318200E118B0 /* ConvertiblePrimitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540FDE9C1E5A288600B07092 /* ConvertiblePrimitive.swift */; };
 		54D26DD31DA3595900A79057 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D26DD21DA3595900A79057 /* JSONTests.swift */; };
 		54D26DD51DA4DA6C00A79057 /* TestingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D26DD41DA4DA6C00A79057 /* TestingUtils.swift */; };
 		54D26DDE1DA55AFE00A79057 /* OperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D26DDD1DA55AFE00A79057 /* OperatorTests.swift */; };
@@ -60,8 +62,9 @@
 		5409DDAB1DA09AEB00A30292 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Extensions.swift"; path = "JSON/Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		5409DDB31DA0A4D900A30292 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Serializable.swift; path = Serializable/Serializable.swift; sourceTree = "<group>"; };
 		5409DDC41DA1832100A30292 /* Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Operator.swift; path = Operators/Operator.swift; sourceTree = "<group>"; };
-		5409DDCC1DA19ECC00A30292 /* KVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KVC.swift; path = KVC/KVC.swift; sourceTree = "<group>"; };
 		5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SerializerRule.swift; path = Serializable/SerializerRule.swift; sourceTree = "<group>"; };
+		540FDE961E5A236300B07092 /* Convertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Convertible.swift; path = Serializable/Convertible.swift; sourceTree = "<group>"; };
+		540FDE9C1E5A288600B07092 /* ConvertiblePrimitive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertiblePrimitive.swift; path = Serializable/ConvertiblePrimitive.swift; sourceTree = "<group>"; };
 		542C6A761DA5E9B600D2D4E6 /* DictionaryExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtensionsTests.swift; path = JSON/DictionaryExtensionsTests.swift; sourceTree = "<group>"; };
 		542C6A781DA6248600D2D4E6 /* TestUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestUser.swift; path = Classes/TestUser.swift; sourceTree = "<group>"; };
 		542C6A7A1DA6290F00D2D4E6 /* OneToOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OneToOne.swift; path = Operators/OneToOne.swift; sourceTree = "<group>"; };
@@ -116,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				54D26DD61DA5573100A79057 /* Utils */,
-				5409DDCB1DA19EB900A30292 /* KVC */,
 				5409DDC31DA1831200A30292 /* Operators */,
 				5409DDB21DA0A4C800A30292 /* Serializable */,
 				5409DDA71DA0996C00A30292 /* JSON */,
@@ -155,6 +157,8 @@
 			children = (
 				5409DDB31DA0A4D900A30292 /* Serializable.swift */,
 				5409DDCF1DA1DDCD00A30292 /* SerializerRule.swift */,
+				540FDE961E5A236300B07092 /* Convertible.swift */,
+				540FDE9C1E5A288600B07092 /* ConvertiblePrimitive.swift */,
 			);
 			name = Serializable;
 			sourceTree = "<group>";
@@ -168,14 +172,6 @@
 				54D598A01E2856F600EB2A82 /* Error.swift */,
 			);
 			name = Operators;
-			sourceTree = "<group>";
-		};
-		5409DDCB1DA19EB900A30292 /* KVC */ = {
-			isa = PBXGroup;
-			children = (
-				5409DDCC1DA19ECC00A30292 /* KVC.swift */,
-			);
-			name = KVC;
 			sourceTree = "<group>";
 		};
 		54D26DCE1DA2C50400A79057 /* KVC */ = {
@@ -338,8 +334,9 @@
 				542C6A7B1DA6290F00D2D4E6 /* OneToOne.swift in Sources */,
 				5409DDAC1DA09AEB00A30292 /* Dictionary+Extensions.swift in Sources */,
 				54D598A11E2856F600EB2A82 /* Error.swift in Sources */,
+				540FDE9D1E5A288600B07092 /* ConvertiblePrimitive.swift in Sources */,
 				544D337E1E593C1600E2C134 /* Date+Converter.swift in Sources */,
-				5409DDCD1DA19ECC00A30292 /* KVC.swift in Sources */,
+				540FDE971E5A236300B07092 /* Convertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +344,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5409DDCE1DA19ECC00A30292 /* KVC.swift in Sources */,
 				5409DD9C1DA0996800A30292 /* MapperTests.swift in Sources */,
 				5409DDB51DA0A4D900A30292 /* Serializable.swift in Sources */,
 				54D26DDE1DA55AFE00A79057 /* OperatorTests.swift in Sources */,
@@ -358,12 +354,14 @@
 				542C6A841DA896D000D2D4E6 /* OneToMany.swift in Sources */,
 				54D26DD51DA4DA6C00A79057 /* TestingUtils.swift in Sources */,
 				54D598A21E2856F600EB2A82 /* Error.swift in Sources */,
+				5494C5A31E5A318200E118B0 /* ConvertiblePrimitive.swift in Sources */,
 				5409DDC61DA1832100A30292 /* Operator.swift in Sources */,
 				542C6A7C1DA6290F00D2D4E6 /* OneToOne.swift in Sources */,
 				542C6A791DA6248600D2D4E6 /* TestUser.swift in Sources */,
 				542C6A8C1DA8A96000D2D4E6 /* OneToManyTests.swift in Sources */,
 				5409DDAD1DA09AEB00A30292 /* Dictionary+Extensions.swift in Sources */,
 				5409DDD11DA1DDCD00A30292 /* SerializerRule.swift in Sources */,
+				540FDE981E5A236300B07092 /* Convertible.swift in Sources */,
 				54D26DD31DA3595900A79057 /* JSONTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
