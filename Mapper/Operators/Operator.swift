@@ -9,6 +9,19 @@
 import Foundation
 
 public func =><T>(lhs: JSON, rhs: String) throws -> T {
+    
+    if T.self == Date.self {
+        if let val = lhs.getKeyPath(rhs) as? String {
+            guard let date = Date.dateFromString(val) as? T else {
+                throw MappingError.InvalidDateFormat
+            }
+            return date
+        }
+        else {
+            throw MappingError.NilValue
+        }
+    }
+    
     if let val = lhs.getKeyPath(rhs) as? T {
         return val
     }

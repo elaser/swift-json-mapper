@@ -14,12 +14,14 @@ class TestUser : Serializable {
     var vehicleName : String?
     var vehicle : TestVehicle?
     var deliveries: [TestDelivery]?
+    var createdAt : Date
         
     required init(json: JSON) throws {
         try id = (json => "identifier")
         try vehicleName = (json => "vehicle_name")
         try vehicle = (json |~>? "vehicle")
         try deliveries = (json <~>? "deliveries")
+        try createdAt = (json => "created_at")
     }
     
 }
