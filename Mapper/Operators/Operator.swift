@@ -31,6 +31,20 @@ public func =><T>(lhs: JSON, rhs: String) throws -> T {
 }
 
 public func =>?<T>(lhs: JSON, rhs: String) -> T? {
+    
+    if T.self == Date.self {
+        if let val = lhs.getKeyPath(rhs) as? String {
+            guard let date = Date.dateFromString(val) as? T else {
+                return nil
+            }
+            return date
+        }
+        else {
+            return nil
+        }
+    }
+    
+    
     if let val = lhs.getKeyPath(rhs) as? T {
         return val
     }

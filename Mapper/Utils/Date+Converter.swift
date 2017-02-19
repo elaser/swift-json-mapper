@@ -15,7 +15,7 @@ let formats : [String] = [
     "hh:mma"
 ]
 
-public extension Date {
+extension Date {
     
     static func dateFormatterWithFormat(_ format:String) -> DateFormatter {
         let dateFormatter = DateFormatter()
