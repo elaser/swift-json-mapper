@@ -23,7 +23,11 @@ public extension Date {
         return date
     }
     
-    static func dateFromISO8601String(str: String) -> Date? {
+    static func dateFromISO8601String(str: String?) -> Date? {
+        guard let str = str else {
+            return nil
+        }
+        
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.timeZone = TimeZone.current
