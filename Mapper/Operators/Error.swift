@@ -12,4 +12,5 @@ enum MappingError : Error {
     case InvalidRule
     case NilValue
     case InvalidDateFormat
+    case InvalidFormat
 }
