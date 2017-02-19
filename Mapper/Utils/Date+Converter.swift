@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
     
     static func safeDateFromISO8601String(str: String) -> Date {
         return self.dateFromISO8601String(str: str, defaultDate: Date())
