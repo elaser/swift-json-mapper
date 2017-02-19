@@ -9,10 +9,15 @@
 import Foundation
 
 let formats : [String] = [
-    "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
     "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ",
+    "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'",
+    "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+    "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "yyyy-MM-dd'T'HH:mm:ssZ",
+    "yyyy-MM-dd'T'HH:mm:ss'Z'",
     "yyyy-MM-dd",
-    "hh:mma"
+    "hh:mma",
+    "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
 ]
 
 extension Date {
