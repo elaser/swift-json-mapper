@@ -8,35 +8,28 @@
 
 import Foundation
 
-public func =><T>(lhs: JSON, rhs: String) throws -> T {
-    if T.self == Date.self {
-        if let val = lhs.getKeyPath(rhs) as? String {
-            guard let date = Date.dateFromString(val) as? T else {
-                throw MappingError.InvalidDateFormat
-            }
-            return date
-        }
-        else {
-            throw MappingError.NilValue
-        }
-    }
+public func =><T>(lhs: JSON, rhs: String) throws -> T where T: Convertible {
     
-    if let val = lhs.getKeyPath(rhs) as? T {
-        return val
+    if let val = lhs.getKeyPath(rhs) {
+        do {
+            return try T.convert(val) as! T
+        }
+        catch {
+            throw MappingError.InvalidFormat
+        }
     }
     else {
         throw MappingError.NilValue
     }
 }
 
-public func =>?<T>(lhs: JSON, rhs: String) -> T? {
+public func =>?<T>(lhs: JSON, rhs: String) -> T? where T: Convertible {
     return try? lhs => rhs
 }
 
 
 infix operator => : ConversionPrecedence
 infix operator =>? : ConversionPrecedence
-infix operator ~> : ConversionPrecedence
 
 precedencegroup ConversionPrecedence {
     associativity: left

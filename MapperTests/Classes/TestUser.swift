@@ -18,7 +18,7 @@ class TestUser : Serializable {
         
     required init(json: JSON) throws {
         try id = (json => "identifier")
-        try vehicleName = (json => "vehicle_name")
+        vehicleName = (json =>? "vehicle_name")
         try vehicle = (json |~>? "vehicle")
         try deliveries = (json <~>? "deliveries")
         try createdAt = (json => "created_at")
@@ -27,8 +27,8 @@ class TestUser : Serializable {
 }
 
 class TestDelivery : Serializable {
-    var id: NSNumber!
-    var name: String!
+    var id: Int
+    var name: String
     
     required init(json: JSON) throws {
         try id = (json => "identifier")
@@ -40,6 +40,6 @@ class TestVehicle : Serializable {
     var name: String?
     
     required init(json: JSON) throws {
-        try name = (json => "name")
+        name = (json =>? "name")
     }
 }
