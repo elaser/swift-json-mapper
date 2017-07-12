@@ -8,30 +8,19 @@
 
 import Foundation
 
-public func =><T>(lhs: JSON, rhs: String) throws -> T where T: Convertible {
-    
-    if let val = lhs.getKeyPath(rhs) {
-        do {
-            return try T.convert(val) as! T
-        }
-        catch {
-            throw MappingError.InvalidFormat
-        }
-    }
-    else {
-        throw MappingError.NilValue
-    }
+public func =><T>(lhs: JSON, rhs: String) throws -> T where T: Convertible, T.ConvertedType == T {
+    guard let val = lhs.getKeyPath(rhs) else { throw MappingError.NilValue }
+    return try T.convert(val)
 }
 
-public func =>?<T>(lhs: JSON, rhs: String) -> T? where T: Convertible {
+public func =>?<T>(lhs: JSON, rhs: String) -> T? where T: Convertible, T.ConvertedType == T {
     return try? lhs => rhs
 }
-
 
 infix operator => : ConversionPrecedence
 infix operator =>? : ConversionPrecedence
 
 precedencegroup ConversionPrecedence {
     associativity: left
-    higherThan: AssignmentPrecedence
+    higherThan: NilCoalescingPrecedence
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 infix operator |~> : ConversionPrecedence
 infix operator |~>? : ConversionPrecedence
 
@@ -16,40 +15,14 @@ infix operator |~>? : ConversionPrecedence
  Note: (Anderthan) - o2o stands for OneToOne relationship.  Given a JSON object, and a NSObject as a recipient, we want to map a nested JSON to it.  You can pass a set of rules (for example if we need to map nested objects, or map different keypaths to another keypath)
  **/
 public func |~><T: Serializable>(lhs: JSON, rhs: String) throws -> T {
-    let mapping : SerializerRule<T> = o2o(rules: nil)
-    if let result = mapping(lhs, rhs) {
-        return result
-    }
-    else {
+    guard let fromJSON = lhs.getKeyPath(rhs, raw: false) as? JSON else {
+        print("Unable to get \(rhs) from \(String(describing: lhs))")
         throw MappingError.NilValue
     }
-}
-
-public func |~>?<T: Serializable>(lhs: JSON, rhs: String) throws -> T? {
-    let mapping : SerializerRule<T> = o2o(rules: nil)
-    return mapping(lhs, rhs)
-}
-
-internal func o2o<T: Serializable>(rules: [SerializerRule<T>]?) -> SerializerRule<T> {
-    func mappingRule(obj: JSON, keyPath: String) -> T? {
-        if let fromJSON = obj.getKeyPath(keyPath, raw: false) as? JSON {
-            do {
-                let generatedClass = try T.init(json: fromJSON)
-                return generatedClass
-            }
-            catch {
-                return nil
-            }
-        }
-        else {
-            print("Unable to get \(keyPath) from \(obj)")
-        }
-
-        return nil
-    }
     
-    return mappingRule
+    return try T(json: fromJSON)
 }
 
-
-
+public func |~>?<T: Serializable>(lhs: JSON, rhs: String) -> T? {
+    return try? lhs |~> rhs
+}

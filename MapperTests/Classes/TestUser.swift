@@ -19,8 +19,8 @@ class TestUser : Serializable {
     required init(json: JSON) throws {
         try id = (json => "identifier")
         vehicleName = (json =>? "vehicle_name")
-        try vehicle = (json |~>? "vehicle")
-        try deliveries = (json <~>? "deliveries")
+        vehicle = (json |~>? "vehicle")
+        deliveries = (json <~>? "deliveries")
         try createdAt = (json => "created_at")
     }
     

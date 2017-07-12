@@ -137,7 +137,6 @@ public extension JSON {
         }
     }
     
-    
     func children() -> [JSON]? {
         switch self {
         case let .array(arr):
@@ -146,7 +145,6 @@ public extension JSON {
             return nil
         }
     }
-    
 }
 
 extension JSON: Equatable { }

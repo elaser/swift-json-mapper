@@ -16,7 +16,7 @@ public extension ConvertiblePrimitive {
             return value
         }
         
-        throw MappingError.InvalidFormat
+        throw MappingError.InvalidFormat(String(describing: from), String(describing: ConvertedType.self))
     }
 }
 
@@ -26,7 +26,7 @@ extension String : Convertible {
             return value
         }
         
-        throw MappingError.InvalidFormat
+        throw MappingError.InvalidFormat(String(describing: from), "String")
     }
 }
 
@@ -37,7 +37,7 @@ extension Int : Convertible {
             return value
         }
         
-        throw MappingError.InvalidFormat
+        throw MappingError.InvalidFormat(String(describing: from), "Int")
     }
 }
 
@@ -47,7 +47,7 @@ extension UInt : Convertible {
             return value
         }
         
-        throw MappingError.InvalidFormat
+        throw MappingError.InvalidFormat(String(describing: from), "UInt")
     }
 }
 
@@ -57,7 +57,7 @@ extension Float : Convertible {
             return value
         }
         
-        throw MappingError.InvalidFormat
+        throw MappingError.InvalidFormat(String(describing: from), "Float")
     }
 }
 
@@ -67,7 +67,7 @@ extension Double : Convertible {
             return value
         }
         
-        throw MappingError.InvalidFormat
+        throw MappingError.InvalidFormat(String(describing: from), "Double")
     }
 }
 
@@ -77,7 +77,7 @@ extension Bool : Convertible {
             return value
         }
         
-        throw MappingError.InvalidFormat
+        throw MappingError.InvalidFormat(String(describing: from), "Bool")
     }
 }
 
@@ -87,19 +87,14 @@ extension NSNumber : Convertible {
             return value
         }
         
-        throw MappingError.InvalidFormat
+        throw MappingError.InvalidFormat(String(describing: from), "NSNumber")
     }
 }
 
 extension Date : Convertible {
-    public static func convert(_ from: Any) throws -> Date {
-        if let value = from as? String {
-            guard let date = Date.dateFromString(value) else {
-                throw MappingError.InvalidDateFormat
-            }
-            return date
-        }
-        
-        throw MappingError.InvalidFormat
+    public static func convert(_ dateString: Any) throws -> Date {
+        guard let string = dateString as? String else { throw MappingError.InvalidFormat(String(describing: dateString), "String") }
+        guard let date = Date(from: string) else { throw MappingError.InvalidDateFormat(string) }
+        return date
     }
 }
