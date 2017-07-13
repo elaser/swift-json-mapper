@@ -16,25 +16,26 @@ extension DateFormatter {
         dateFormat = format
     }
     
-    @nonobjc
-    static var formats: [String] = [
-        "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ",
-        "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'",
-        "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
-        "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-        "yyyy-MM-dd'T'HH:mm:ssZ",
-        "yyyy-MM-dd'T'HH:mm:ss'Z'",
-        "yyyy-MM-dd",
-        "hh:mma",
-        "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-    ]
-}
+    }
 
 extension Date {
     
     @nonobjc init?(from dateString: String?) {
         guard let dateString = dateString else { return nil }
-        if let date = DateFormatter.formats.flatMap({ DateFormatter(with: $0).date(from: dateString) }).first {
+        
+        let formats = [
+            "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ",
+            "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'",
+            "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+            "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+            "yyyy-MM-dd'T'HH:mm:ssZ",
+            "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            "yyyy-MM-dd",
+            "hh:mma",
+            "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        ]
+
+        if let date = formats.flatMap({ DateFormatter(with: $0).date(from: dateString) }).first {
             self = date
         } else {
             return nil
