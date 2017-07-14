@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "JSONMapper"
-  s.version      = "1.1"
+  s.version      = "1.2"
   s.summary      = "JSON Mapper for PONSOs"
   s.homepage     = "https://www.doordash.com"
   s.license      = "MIT"
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "9.0"
 
-  s.source = { :git => 'https://github.com/elaser/swift-json-mapper.git', :tag => "1.1" }
+  s.source = { :git => 'https://github.com/elaser/swift-json-mapper.git', :tag => "1.2" }
   s.source_files  = "Mapper/**/*.{h,m,swift}"
   s.public_header_files = "Mapper/*.h"
 
