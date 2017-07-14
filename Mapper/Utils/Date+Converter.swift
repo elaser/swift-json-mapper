@@ -15,8 +15,7 @@ extension DateFormatter {
         timeZone = .current
         dateFormat = format
     }
-    
-    }
+}
 
 extension Date {
     
@@ -34,7 +33,7 @@ extension Date {
             "hh:mma",
             "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         ]
-
+    
         if let date = formats.flatMap({ DateFormatter(with: $0).date(from: dateString) }).first {
             self = date
         } else {

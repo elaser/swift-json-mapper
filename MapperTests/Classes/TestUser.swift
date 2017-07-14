@@ -17,11 +17,11 @@ class TestUser : Serializable {
     var createdAt : Date
         
     required init(json: JSON) throws {
-        try id = (json => "identifier")
-        vehicleName = (json =>? "vehicle_name")
-        vehicle = (json |~>? "vehicle")
-        deliveries = (json <~>? "deliveries")
-        try createdAt = (json => "created_at")
+        id = try json => "identifier"
+        vehicleName = json => "vehicle_name"
+        vehicle = json => "vehicle"
+        deliveries = json => "deliveries"
+        createdAt = try json => "created_at"
     }
     
 }
@@ -40,6 +40,6 @@ class TestVehicle : Serializable {
     var name: String?
     
     required init(json: JSON) throws {
-        name = (json =>? "name")
+        name = json => "name"
     }
 }
