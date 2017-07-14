@@ -22,6 +22,21 @@ public extension ConvertiblePrimitive {
 
 extension String : Convertible {
     public static func convert(_ from: Any) throws -> String {
+        switch type(of: from) {
+        case is Int.Type:
+            return String(from as! Int)
+        case is String.Type:
+            return from as! String
+        case is Double.Type:
+            return String(from as! Double)
+        case is Bool.Type:
+            return String(from as! Bool)
+        case is NSNumber.Type:
+            return String(describing: from as! NSNumber)
+        default:
+            break
+        }
+        
         if let value = from as? String {
             return value
         }
@@ -36,6 +51,9 @@ extension Int : Convertible {
         if let value = from as? Int {
             return value
         }
+        if let value = from as? String, let number = Int(value) {
+            return number
+        }
         
         throw MappingError.InvalidFormat(String(describing: from), "Int")
     }
@@ -45,6 +63,9 @@ extension UInt : Convertible {
     public static func convert(_ from: Any) throws -> UInt {
         if let value = from as? UInt {
             return value
+        }
+        if let value = from as? String, let number = UInt(value) {
+            return number
         }
         
         throw MappingError.InvalidFormat(String(describing: from), "UInt")
@@ -56,6 +77,9 @@ extension Float : Convertible {
         if let value = from as? Float {
             return value
         }
+        if let value = from as? String, let number = Float(value) {
+            return number
+        }
         
         throw MappingError.InvalidFormat(String(describing: from), "Float")
     }
@@ -66,7 +90,10 @@ extension Double : Convertible {
         if let value = from as? Double {
             return value
         }
-        
+        if let value = from as? String, let number = Double(value) {
+            return number
+        }
+
         throw MappingError.InvalidFormat(String(describing: from), "Double")
     }
 }
@@ -76,7 +103,10 @@ extension Bool : Convertible {
         if let value = from as? Bool {
             return value
         }
-        
+        if let value = from as? String, let number = Bool(value) {
+            return number
+        }
+
         throw MappingError.InvalidFormat(String(describing: from), "Bool")
     }
 }

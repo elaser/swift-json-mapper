@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum MappingError : Error {
+public enum MappingError : Error {
     case NilValue
     case InvalidDateFormat(String)
     case InvalidFormat(String, String)
     
-    var localizedDescription: String {
+    public var localizedDescription: String {
         switch self {
         case .InvalidDateFormat(let value):
             return "The date string specified: (\(value)) cannot be converted to the date object, because it was either nil, or its format does not conform to the dateformatter's format field specification. Please check the string-encoded date value."
