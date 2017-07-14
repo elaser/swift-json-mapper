@@ -8,6 +8,16 @@
 
 import Foundation
 
+precedencegroup ConversionPrecedence {
+    associativity: left
+    higherThan: NilCoalescingPrecedence
+}
+
+infix operator => : ConversionPrecedence
+infix operator =>? : ConversionPrecedence
+
+/**
+ */
 public func =><T>(lhs: JSON, rhs: String) throws -> T where T: Convertible, T.ConvertedType == T {
     guard let val = lhs.getKeyPath(rhs) else { throw MappingError.NilValue }
     return try T.convert(val)
@@ -17,10 +27,3 @@ public func =>?<T>(lhs: JSON, rhs: String) -> T? where T: Convertible, T.Convert
     return try? lhs => rhs
 }
 
-infix operator => : ConversionPrecedence
-infix operator =>? : ConversionPrecedence
-
-precedencegroup ConversionPrecedence {
-    associativity: left
-    higherThan: NilCoalescingPrecedence
-}
