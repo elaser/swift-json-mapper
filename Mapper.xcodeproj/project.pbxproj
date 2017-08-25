@@ -31,6 +31,14 @@
 		54D26DDE1DA55AFE00A79057 /* OperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D26DDD1DA55AFE00A79057 /* OperatorTests.swift */; };
 		54D598A11E2856F600EB2A82 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D598A01E2856F600EB2A82 /* Error.swift */; };
 		54D598A21E2856F600EB2A82 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D598A01E2856F600EB2A82 /* Error.swift */; };
+		67E727E01F50C39B0083FF0A /* MapperMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E727DE1F50C39B0083FF0A /* MapperMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67E727E41F50C3B10083FF0A /* Date+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544D337D1E593C1600E2C134 /* Date+Converter.swift */; };
+		67E727E51F50C3B10083FF0A /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDC41DA1832100A30292 /* Operator.swift */; };
+		67E727E61F50C3B10083FF0A /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D598A01E2856F600EB2A82 /* Error.swift */; };
+		67E727E71F50C3B10083FF0A /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDB31DA0A4D900A30292 /* Serializable.swift */; };
+		67E727E81F50C3B10083FF0A /* Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540FDE961E5A236300B07092 /* Convertible.swift */; };
+		67E727E91F50C3B10083FF0A /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDA81DA0997A00A30292 /* JSON.swift */; };
+		67E727EA1F50C3B10083FF0A /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409DDAB1DA09AEB00A30292 /* Dictionary+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +72,9 @@
 		54D26DD41DA4DA6C00A79057 /* TestingUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingUtils.swift; sourceTree = "<group>"; };
 		54D26DDD1DA55AFE00A79057 /* OperatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OperatorTests.swift; path = Operator/OperatorTests.swift; sourceTree = "<group>"; };
 		54D598A01E2856F600EB2A82 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Operators/Error.swift; sourceTree = "<group>"; };
+		67E727DC1F50C39B0083FF0A /* MapperMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapperMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67E727DE1F50C39B0083FF0A /* MapperMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapperMac.h; sourceTree = "<group>"; };
+		67E727DF1F50C39B0083FF0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +93,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		67E727D81F50C39B0083FF0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -89,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				5409DD8F1DA0996700A30292 /* Mapper */,
+				67E727DD1F50C39B0083FF0A /* MapperMac */,
 				5409DD9A1DA0996800A30292 /* MapperTests */,
 				5409DD8E1DA0996700A30292 /* Products */,
 			);
@@ -99,6 +118,7 @@
 			children = (
 				5409DD8D1DA0996700A30292 /* Mapper.framework */,
 				5409DD961DA0996800A30292 /* MapperTests.xctest */,
+				67E727DC1F50C39B0083FF0A /* MapperMac.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,6 +219,15 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		67E727DD1F50C39B0083FF0A /* MapperMac */ = {
+			isa = PBXGroup;
+			children = (
+				67E727DE1F50C39B0083FF0A /* MapperMac.h */,
+				67E727DF1F50C39B0083FF0A /* Info.plist */,
+			);
+			path = MapperMac;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -207,6 +236,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5409DD9E1DA0996800A30292 /* Mapper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67E727D91F50C39B0083FF0A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67E727E01F50C39B0083FF0A /* MapperMac.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +286,24 @@
 			productReference = 5409DD961DA0996800A30292 /* MapperTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		67E727DB1F50C39B0083FF0A /* MapperMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67E727E31F50C39B0083FF0A /* Build configuration list for PBXNativeTarget "MapperMac" */;
+			buildPhases = (
+				67E727D71F50C39B0083FF0A /* Sources */,
+				67E727D81F50C39B0083FF0A /* Frameworks */,
+				67E727D91F50C39B0083FF0A /* Headers */,
+				67E727DA1F50C39B0083FF0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MapperMac;
+			productName = MapperMac;
+			productReference = 67E727DC1F50C39B0083FF0A /* MapperMac.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -268,6 +323,11 @@
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
 					};
+					67E727DB1F50C39B0083FF0A = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = W44ZWC57TC;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 5409DD871DA0996700A30292 /* Build configuration list for PBXProject "Mapper" */;
@@ -283,6 +343,7 @@
 			projectRoot = "";
 			targets = (
 				5409DD8C1DA0996700A30292 /* Mapper */,
+				67E727DB1F50C39B0083FF0A /* MapperMac */,
 				5409DD951DA0996800A30292 /* MapperTests */,
 			);
 		};
@@ -297,6 +358,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5409DD941DA0996800A30292 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67E727DA1F50C39B0083FF0A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,6 +407,20 @@
 				5409DDAD1DA09AEB00A30292 /* Dictionary+Extensions.swift in Sources */,
 				540FDE981E5A236300B07092 /* Convertible.swift in Sources */,
 				54D26DD31DA3595900A79057 /* JSONTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67E727D71F50C39B0083FF0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67E727E41F50C3B10083FF0A /* Date+Converter.swift in Sources */,
+				67E727E51F50C3B10083FF0A /* Operator.swift in Sources */,
+				67E727E61F50C3B10083FF0A /* Error.swift in Sources */,
+				67E727E71F50C3B10083FF0A /* Serializable.swift in Sources */,
+				67E727E81F50C3B10083FF0A /* Convertible.swift in Sources */,
+				67E727E91F50C3B10083FF0A /* JSON.swift in Sources */,
+				67E727EA1F50C3B10083FF0A /* Dictionary+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +617,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anderthan.MapperTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Debug;
 		};
@@ -546,6 +629,55 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anderthan.MapperTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Release;
+		};
+		67E727E11F50C39B0083FF0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W44ZWC57TC;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = MapperMac/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doordash.MapperMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		67E727E21F50C39B0083FF0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W44ZWC57TC;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = MapperMac/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doordash.MapperMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -578,6 +710,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		67E727E31F50C39B0083FF0A /* Build configuration list for PBXNativeTarget "MapperMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67E727E11F50C39B0083FF0A /* Debug */,
+				67E727E21F50C39B0083FF0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
