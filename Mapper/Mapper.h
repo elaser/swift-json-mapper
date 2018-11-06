@@ -6,6 +6,7 @@
 //  Copyright © 2016 anderthan. All rights reserved.
 //
 
+@import Foundation;
 //! Project version number for Mapper.
 FOUNDATION_EXPORT double MapperVersionNumber;
 

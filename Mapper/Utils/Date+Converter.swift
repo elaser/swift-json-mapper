@@ -34,7 +34,7 @@ extension Date {
             "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         ]
     
-        if let date = formats.flatMap({ DateFormatter(with: $0).date(from: dateString) }).first {
+        if let date = formats.compactMap({ DateFormatter(with: $0).date(from: dateString) }).first {
             self = date
         } else {
             return nil

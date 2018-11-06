@@ -6,6 +6,8 @@
 //  Copyright © 2017 anderthan. All rights reserved.
 //
 
+@import Foundation;
+
 //! Project version number for MapperMac.
 FOUNDATION_EXPORT double MapperMacVersionNumber;
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+@testable import Mapper
 
 class TestUser : Serializable {
     
