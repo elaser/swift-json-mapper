@@ -36,7 +36,6 @@ public func => <T>(lhs: JSON, rhs: String) -> T? where T: Convertible {
  **/
 public func => <T: Serializable>(lhs: JSON, rhs: String) throws -> T {
     guard let fromJSON = lhs.getKeyPath(rhs, raw: false) as? JSON else {
-        print("Unable to get \(rhs) from \(String(describing: lhs))")
         throw MappingError.NilValue
     }
     
@@ -55,7 +54,6 @@ public func => <T: Serializable>(lhs: JSON, rhs: String) -> T? {
 public func => <T: Serializable>(lhs: JSON, rhs: String) throws -> [T] {
     guard let fromJSON = lhs.getKeyPath(rhs, raw: false) as? JSON,
         let children = fromJSON.children() else {
-            print("Unable to get \(rhs) from \(String(describing: lhs))")
             throw MappingError.NilValue
     }
     return try children.reduce([], { $0 + [try T(json: $1)] })
