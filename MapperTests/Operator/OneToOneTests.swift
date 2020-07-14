@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Mapper
 
 class OneToOneTests: XCTestCase {
     
